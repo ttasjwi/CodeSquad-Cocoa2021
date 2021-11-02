@@ -1,5 +1,5 @@
 
-#개발환경
+# 개발환경
  - jdk 11 [설치](https://www.oracle.com/java/technologies/downloads/#java11, "go to java Downloads")
  - IntelliJ IDEA Community Edition [toolboxApp을 통해서 설치](https://www.jetbrains.com/ko-kr/toolbox-app, "go to Toolbox App Download")
  - 인텔리제이 단축키를 새로 잘 익혀두는게 중요! 이건 블로그에 일단 임시로 정리하고 있다.
