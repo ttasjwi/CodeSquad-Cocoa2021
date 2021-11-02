@@ -14,3 +14,5 @@
   - 사용자로부터 시작단, 끝단을 입력받아 구구단을 출력함
   - 작성 코드 : [링크](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/src/gugudan, "작성 코드 확인하기")
   - 막상 작성해 놓고보니, 입력을 받아 Dans를 출력하는 getDans() 메서드를 Dans에 정의했어야했는지, Prompt()에 정의해야했는지, 아니면 생성자로 다 퉁쳐야했는지 애매모호해짐. 이 부분에 대해서는 다른 분들과 의견을 교류하고 싶다.
+ ## 백준 - 조건문 연습
+   - boj_1330 (Bronze4) : 두수 비교해서 비교결과 부등호 출력하기 [[문제]](https://www.acmicpc.net/problem/1330) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_1330)
