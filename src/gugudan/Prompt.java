@@ -3,7 +3,7 @@ package gugudan;
 class Prompt {
 
     void run() {
-        Dans dans = Dans.getDans();
+        Dans dans = Dans.create();
         System.out.println(dans);
     }
 }

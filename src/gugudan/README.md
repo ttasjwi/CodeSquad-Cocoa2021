@@ -10,5 +10,5 @@
 ## Dans
  - 전역변수 : 시작단 및 끝단을 지정한 변수 startDan, endDan
  - Dans(int startDan, int endDan) : 생성자
- - static Dans getDans() : 시작단, 끝단을 사용자 입력으로부터 받아 Dans 객체 반환
+ - static Dans create() : 시작단, 끝단을 사용자 입력으로부터 받아 Dans 객체 반환
  - void toString() : 시작단부터 끝단까지의 문자열을 반환 (Object의 toString() 오버라이드)

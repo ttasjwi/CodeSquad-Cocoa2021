@@ -15,10 +15,11 @@ class Dans {
     }
 
     // 사용자로부터 입력을 받아 Dans를 반환
-    static Dans getDans()  {
+    static Dans create()  {
 
         int startDan = 0;
         int endDan = 0;
+
         while (true) {
             try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
                 System.out.print("몇 단부터 몇 단까지? ex) 2 7 : ");
