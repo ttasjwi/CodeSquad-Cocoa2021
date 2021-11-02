@@ -18,3 +18,4 @@
    - boj_1330 (Bronze4) : 두 수 비교해서 비교결과 부등호 출력하기 [[문제]](https://www.acmicpc.net/problem/1330) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_1330)
    - boj_9498 (Bronze4) : 점수를 입력받아, 등급(F,D,C,B,A)을 출력 [[문제]](https://www.acmicpc.net/problem/9498) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_9498)
    - boj_2753 (Bronze4) : 연도를 입력받아 윤년, 평년 여부를 문자 '1', '0'으로 반환 [[문제]](https://www.acmicpc.net/problem/2753) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_2753)
+   - boj_14681(Bronze4) : 점의 x,y 좌표를 입력받아 해당 점이 어느 사분면에 속하는지 문자로 반환 [[문제]](https://www.acmicpc.net/problem/14681) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_14681)
