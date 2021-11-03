@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        final int nmbOfMembers = Prompt.input(); // 사용자로부터 멤버의 수를 인원 받는다.
+        final int nmbOfMembers = Prompt.input(); // 사용자로부터 멤버의 수를 입력 받는다.
         final Set<Member> randomMembers = Member.randomSet(nmbOfMembers); // 인원수만큼 임의의 멤버들을 Set으로 반환한다.
         Prompt.print(randomMembers); // Set을 출력한다.
     }
