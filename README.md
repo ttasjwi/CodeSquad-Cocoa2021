@@ -29,3 +29,8 @@
 
 - [[풀이]](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/src/rdmMember)
 - 멤버들을 이어 붙일 때 Stream에 대한 지식이 좀 더 있었으면 StringBuilder 대신 이를 이용해 출력하기 좋았을텐데 이 부분이 아쉽다. Stream을 공부해야겠다는 생각이 들었다.
+
+## 인디언 이름 짓기
+
+- [[풀이]](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/src/indianName)
+- 후기 : 생년월일의 각 성분과, 인디언 이름의 매칭을 배열로 해놨지만, 이보다는 열거형을 통해 정의하는게 더 나을 것 같다.
