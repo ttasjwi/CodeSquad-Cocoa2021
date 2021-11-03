@@ -29,6 +29,7 @@ public class Prompt {
     
     // 출력
     static void print(Set<Member> memberSet) {
+        if (memberSet.size()==0) return;
         final StringBuilder members = new StringBuilder();
         for (Member member : memberSet) {
             String memberName = member.name();
