@@ -27,7 +27,7 @@ public class Main {
 ## Prompt
 - public static int input() : 사용자로부터 입력하고자 하는 인원수를 입력받음  
 - private static void inputValidation (int input) : 입력 인원수의 유효성 확인
-- static void print(Set<Member> memberSet) : 출력
+- static void print(Set<Member> memberSet) : 출력 (인원수가 0일 경우, 아무 것도 출력하지 않음)
 
 ## Member
 - 멤버들을 정의한 열거형
