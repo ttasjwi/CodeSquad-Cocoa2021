@@ -22,3 +22,10 @@
    - boj_9498 (Bronze4) : 점수를 입력받아, 등급(F,D,C,B,A)을 출력 [[문제]](https://www.acmicpc.net/problem/9498) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_9498)
    - boj_2753 (Bronze4) : 연도를 입력받아 윤년, 평년 여부를 문자 '1', '0'으로 반환 [[문제]](https://www.acmicpc.net/problem/2753) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_2753)
    - boj_14681(Bronze4) : 점의 x,y 좌표를 입력받아 해당 점이 어느 사분면에 속하는지 문자로 반환 [[문제]](https://www.acmicpc.net/problem/14681) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_14681)
+
+# Day 3 미션
+
+## 랜덤 뽑기
+
+- [[풀이]](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/src/rdmMember)
+- 멤버들을 이어 붙일 때 Stream에 대한 지식이 좀 더 있었으면 StringBuilder 대신 이를 이용해 출력하기 좋았을텐데 이 부분이 아쉽다. Stream을 공부해야겠다는 생각이 들었다.
