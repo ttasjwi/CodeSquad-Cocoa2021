@@ -33,13 +33,6 @@ public class Main {
 - static LocalDate input() : 사용자로부터 생년월일을 입력받아, LocalDate를 반환받음
 - static void print(final Indian indian) : indian의 인디언식 이름을 출력
 
-## Member
-- 멤버들을 정의한 열거형
-- static final Member[] MEMBERS : 멤버들 전원을 배열로 반환
-- static final int count() : 멤버들의 수를 반환
-- static Member rdmMember() : 임의의 멤버를 반환
-- static Set<Member> randomSet(final int nmbOfMember) : 지정 인원수만큼 임의의 멤버들을 Set으로 반환
-
 ## Indian
 - 생성자 : Indian(LocalDate birthDate)
 - 클래스 변수 : private static final String[] FIRST_NAMES, MIDDLE_NAMES, LAST_NAMES
