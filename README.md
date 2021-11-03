@@ -6,16 +6,17 @@
 
 # Day 1 미션
 
- ## GitHub저장소
- - README.md 생성 (이 파일!)
+ ## Git 및 GitHub 사용법 익히기
+ - README.md 생성 : Repository에 관한 정보를 기입할 수 있음. 마크다운 사용법도 지속적으로 익혀두면 좋음.
  - 미션리스트 업로드
  - 작성 코드는 github에 업로드 및 push
- - 주의 사항 : 불필요한 파일들은 커밋에 포함하지 않는다 <- .ignore을 통해 건들여야할듯... 이게 좀 어렵다
+ - 주의 사항 : 불필요한 파일들은 커밋에 포함하지 않는다 <- .ignore을 통해 건들여야할듯...
+ - Git, GitHub 초기 설정부분까지 정리해뒀다. [링크](https://ttasjwi.tistory.com/5?category=895784)
 
  ## 구구단
   - 사용자로부터 시작단, 끝단을 입력받아 구구단을 출력함
   - 작성 코드 : [링크](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/src/gugudan "작성 코드 확인하기")
-  - 막상 작성해 놓고보니, 입력을 받아 Dans를 출력하는 getDans() 메서드를 Dans에 정의했어야했는지, Prompt()에 정의해야했는지, 아니면 생성자로 다 퉁쳐야했는지 애매모호해짐. 이 부분에 대해서는 다른 분들과 의견을 교류하고 싶다.
+  - 막상 작성해 놓고보니, 입력을 받아 Dans를 출력하는 getDans() 메서드를 Dans에 정의했어야했는지, Prompt()에 정의해야했는지, 아니면 생성자로 다 퉁쳐야했는지 애매모호해짐. 이 부분에 대해서는 다른 분들과 의견을 교류하고 싶다. -> [Dan의 풀이](https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/Dan/src/gugudan)
 
  ## 백준 - 조건문 연습
    - boj_1330 (Bronze4) : 두 수 비교해서 비교결과 부등호 출력하기 [[문제]](https://www.acmicpc.net/problem/1330) [[풀이]](https://github.com/ttasjwi/BOJ/tree/master/src/boj_1330)
