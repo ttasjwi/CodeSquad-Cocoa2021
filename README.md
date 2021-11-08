@@ -4,6 +4,19 @@
  - IntelliJ IDEA Community Edition <a href="https://www.jetbrains.com/ko-kr/toolbox-app" target="_blank">toolbox-app을 통해 설치</a>
  - 인텔리제이 단축키를 새로 잘 익혀두는게 중요! 이건 블로그에 일단 임시로 정리하고 있다.
 
+# WEEK \#1 (2021.11.01 ~ 2021.11.07)
+<a href="https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/Week%20%231" target="_blank"> > WEEK #1 </a>
+
+# WEEK \#2 (2021.11.08 ~ 2021.11.14)
+<a href="https://github.com/ttasjwi/CodeSquad-Cocoa2021/tree/master/Week%20%232" target="_blank"> > WEEK #2 </a>
+
+# WEEK \#3 (2021.11.15 ~ 2021.11.21)
+
+# WEEK \#4 (2021.11.22 ~ 2021.11.28)
+
+# WEEK \#5 (2021.11.29 ~ 2021.12.02)
+
+
 # Day 1 미션
 
  ## 마크다운(MarkDown)
