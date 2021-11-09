@@ -95,7 +95,7 @@ Date : 2021.11.09 (Tue)
   
   // 예를 들면 이 상황에서 eat 메서드를 통하여, honux 객체와, rabbit 객체는 서로 eat메서드에 정의된 상호작용을 한다.
   void eat(Animal animal) {
-    System.out.println(name+"가 "+name+"을 먹습니다. 냠냠 맛있엉");
+    System.out.println(name+"가 "+animal.toString()+"을 먹습니다. 냠냠 맛있엉");
     this.weight += animal.getWeight();;
     return;
   }
