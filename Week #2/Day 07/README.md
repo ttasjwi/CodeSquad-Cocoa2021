@@ -20,7 +20,7 @@ Date : 2021.11.09 (Tue)
   - Call by Reference : Parameter가 원본 argumnet를 직접 참조함. 따라서 함수의 작업과정에서 parameter의 변화는 argument에 영향을 미친다.
 - Java에서는 Call by Value만 존재한다.
   - 기본형 : argument를 복제하여 Parameter에 대입함. 따라서 argument에 영향을 미치지 않는다.
-  - 참조형 : argument의 value가 객체의 주소참조값이다. parameter에 주소참조값을 복사하여 넘김.
+  - 참조형 : argument의 value가 객체의 주소참조값이다. parameter에 주소참조값을 복사하여 넘김. argument를 복사하여 전달한다는 점에서는 Call by Value의 원칙은 그대로. 하지만, Heap에 위치한 객체의 주소참조값을 넘기므로, 작업 과정에서 객체 그 자체에 영향을 미친다. 
 - return 명령어가 가지는 두 가지 의미
   - 호출한 위치로 돌아간다.
   - 반환값이 있는 경우, 호출한 위치에 값을 반환한다.
