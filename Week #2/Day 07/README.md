@@ -87,8 +87,19 @@ Date : 2021.11.09 (Tue)
 
 ## 객체의 상호작용
 - 객체는 메서드를 통하여 상호작용을 한다.
-- 객체들은 메서드의 매개변수(input)와 return을 통하여 서로 메시지(행동, 상호작용)를 전달한다.
-
+- 객체들은 메서드의 매개변수(parameter), return문을 거쳐서 서로 메시지를 전달한다. (행동, 상호작용)
+```
+  Person honux = new Person("호눅스", 60);
+  Animal rabbit = new Rabbit();
+  honux.eat(rabbit);
+  
+  // 예를 들면 이 상황에서 eat 메서드를 통하여, honux 객체와, rabbit 객체는 서로 eat메서드에 정의된 상호작용을 한다.
+  void eat(Animal animal) {
+    System.out.println(name+"가 "+name+"을 먹습니다. 냠냠 맛있엉");
+    this.weight += animal.getWeight();;
+    return;
+  }
+```
 ---
 
 ## 선언 위치에 따른 변수의 종류
