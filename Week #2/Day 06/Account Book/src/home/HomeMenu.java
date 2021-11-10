@@ -1,14 +1,14 @@
 package home;
 
-import main.Application;
+import appDB.AccountBookDB;
 import util.Inputter;
 
 import java.util.Scanner;
 
 public class HomeMenu {
 
-    private Scanner SC = Inputter.getResource();
-    private Application app;
+    private static Scanner SC = Inputter.getResource();
+    private AccountBookDB accountBookDB;
 
     private static final String HOME_MENU =
             "==============\n" +
@@ -17,25 +17,29 @@ public class HomeMenu {
                     "q. 프로그램 종료\n" +
                     "=============";
 
-    public HomeMenu(Application app) {
-
+    // 생성자
+    public HomeMenu (AccountBookDB accountBookDB) {
+        this.accountBookDB = accountBookDB;
     }
 
+    // HomeMenu를 실행한다.
     public boolean run() {
         showHomeMenu();
         String command = inputCommand();
+
         switch (command) {
             case "1":
                 System.out.println("로그인창으로 갈거야");
                 break;
             case "2":
-                System.out.println("회원가입 창으로 갈거야");
+                RegisterMenu registerMenu = new RegisterMenu(accountBookDB);
+                registerMenu.run();
                 break;
             case "q":
                 System.out.println("가계부 어플리케이션을 종료합니다. 바이바이~");
                 return true;
         }
-        return true;
+        return run();
     }
 
     // 홈메뉴 창을 보인다.
