@@ -21,7 +21,7 @@ import java.util.Scanner;
 - Scanner(String source)
 - Scanner(File source)
 - Scanner(InputStream source)
-  - 예) 화면 입출력 시 Scanner(System.in)을 생성하면 됨.
+    - 예) 화면 입출력 시 Scanner(System.in)을 생성하면 됨.
 - Scanner (Readable source)
 - Scanner (ReadableByteChannel source)
 - Scanner (Path source) _// 1.7부터 추가_
@@ -30,26 +30,26 @@ import java.util.Scanner;
 ### 1) 입력
 
 - 입력 소스로부터 값을 읽어와 버퍼에 저장
-- 이 때 공백(' ','\s'), 탭문자('\t'), 개행자('\n') 등도 버퍼에 저장 
+- 이 때 공백(' ','\s'), 탭문자('\t'), 개행자('\n') 등도 버퍼에 저장
 
 ### 2) 값의 반환 메서드
-입력 소스로부터 받아온 값들을 여러 타입으로 반환받을 수 있음.  
+입력 소스로부터 받아온 값들을 여러 타입으로 반환받을 수 있음.
 - 종류
-   - boolean `nextBoolean()`
-   - byte `nextByte()`
-   - short `nextShort()`
-   - int `nextInt()`
-   - long `nextDouble()`
-   - float `nextFloat()`
-   - double `nextDouble()`
-   - String `next()`
-   - String `nextLine()` \*\*\* 
+    - boolean `nextBoolean()`
+    - byte `nextByte()`
+    - short `nextShort()`
+    - int `nextInt()`
+    - long `nextDouble()`
+    - float `nextFloat()`
+    - double `nextDouble()`
+    - String `next()`
+    - String `nextLine()` \*\*\*
 
 - 주의점
-  - 실제 입력한 데이터의 형식에 맞는 메서드를 사용하지 않으면 `InputMismatchException`이 throw 됨
-  - `nextLine()` : 다음 개행자 '\n'까지 값을 가져와서(버퍼에서 해당 부분은 비워짐) 개행자 앞부분까지 반환함
-  - `next()`, '`nextInt()` 등 다른 메서드들 : 다음 공백문자들까지 버퍼에서 값을 가져와서 반환하는데, 개행자('\n')는 가져오지 않음
-  - 이런 점에서 next(), nextInt() 등에 이어서 nextLine() 등을 같이 쓸 때는 주의해야하는데, nextLine()을 한번 호출해서 버퍼를 비우도록 해야함.
+    - 실제 입력한 데이터의 형식에 맞는 메서드를 사용하지 않으면 `InputMismatchException`이 throw 됨
+    - `nextLine()` : 다음 개행자 '\n'까지 값을 가져와서(버퍼에서 해당 부분은 비워짐) 개행자 앞부분까지 반환함
+    - `next()`, '`nextInt()` 등 다른 메서드들 : 다음 공백문자들까지 버퍼에서 값을 가져와서 반환하는데, 개행자('\n')는 가져오지 않음
+    - 이런 점에서 next(), nextInt() 등에 이어서 nextLine() 등을 같이 쓸 때는 주의해야하는데, nextLine()을 한번 호출해서 버퍼를 비우도록 해야함.
 
 ### 3) 다음 값의 존재성
 - boolean hasNextLine() : 다음 라인이 존재하는지 여부를 반환
