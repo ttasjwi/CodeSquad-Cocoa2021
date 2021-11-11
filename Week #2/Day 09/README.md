@@ -8,7 +8,7 @@ Date : 2021.11.11 (Thu)
 # 복습
  
 ## 자바 변수의 기본 타입들
-- <a href="https://github.com/ttasjwi/CodeSquad-Cocoa2021/blob/master/Note/Variable/Variable2.md" target="_blank">GitHub Repository</a>에 정리해둠
+- <a href="https://github.com/ttasjwi/CodeSquad-Cocoa2021/blob/master/Note/Variable/Variable_2.md" target="_blank">GitHub Repository</a>에 정리해둠
 
 ## 참조형
 
