@@ -19,6 +19,10 @@ public class AccountBook {
         return this.userData.getID();
     }
 
+    public boolean hasSamePassWord(String passWord) {
+        return this.userData.hasSamePassWord(passWord);
+    }
+
     // 레코드를 추가한다.
     public boolean add(Record record) {
         return records.add(record);

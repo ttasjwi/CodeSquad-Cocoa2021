@@ -29,7 +29,8 @@ public class HomeMenu {
 
         switch (command) {
             case "1":
-                System.out.println("로그인창으로 갈거야");
+                LoginMenu loginMenu = LoginMenu.of(accountBookDB);
+                loginMenu.run();
                 break;
             case "2":
                 RegisterMenu registerMenu = new RegisterMenu(accountBookDB);
