@@ -1,5 +1,6 @@
 package home;
 
+import access.AccessMenu;
 import appDB.AccountBookDB;
 import personalData.AccountBook;
 import util.Inputter;
@@ -41,8 +42,8 @@ public class LoginMenu {
         // 반환되었으면 accessMenu를 실행한다.
 
         //TODO : AccessMenu 구현하기
-//        AccessMenu accessMenu = accessMenu.of(accountBook);
-//        accessMenu.run();
+        AccessMenu accessMenu = AccessMenu.of(accountBook);
+        accessMenu.run();
         return this.run();
     }
 
