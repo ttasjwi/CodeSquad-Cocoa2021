@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class SearchMenu {
     private static Scanner SC = Inputter.getResource();
-    private static DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,000");
+    private static DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,###");
 
     private AccountBook accountBook;
 
@@ -33,11 +33,11 @@ public class SearchMenu {
         System.out.printf("%15s %20s %20s %4s %50s%n", "날짜", "수입", "지출", "지불방식", "적요");
         while(ir.hasNext()) {
             Record record = ir.next();
-            System.out.printf("%15s %20s %20s %4s %50s%n",
+            System.out.printf("%16s %21s %21s %5s %51s%n",
                     record.getLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
                     DECIMAL_FORMAT.format(record.getIncome()),
                     DECIMAL_FORMAT.format(record.getExpense()),
-                    record.getPaymentMethodStr(),
+                    record.getPaymentMethod().getNameKor(),
                     record.getMsg());
         }
     }
