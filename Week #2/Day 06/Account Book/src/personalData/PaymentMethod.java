@@ -1,10 +1,22 @@
 package personalData;
 
-public enum PaymentMethod {
-    CASH, CARD;
-    private static final PaymentMethod[] PAYMENT_METHODS = PaymentMethod.values();
+import java.util.Arrays;
+import java.util.List;
 
-    public static PaymentMethod[] arrays() {
-        return PAYMENT_METHODS;
+public enum PaymentMethod {
+    CASH("현금", 1), CARD("카드", 2);
+    private String nameKor;
+    private int code; // 수입이면 true, 지출이면 false;
+
+    PaymentMethod(String nameKor, int code) {
+        this.nameKor = nameKor;
+        this.code = code;
     }
+
+    private static final List<PaymentMethod> PAYMENT_METHODS = Arrays.asList(PaymentMethod.values());
+
+    public static final PaymentMethod of(int code) {
+        return PAYMENT_METHODS.get(code-1);
+    }
+
 }
