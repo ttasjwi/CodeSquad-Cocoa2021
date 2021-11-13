@@ -19,4 +19,8 @@ public enum PaymentMethod {
         return PAYMENT_METHODS.get(code-1);
     }
 
+    public int getCode() {
+        return this.code;
+    }
+
 }

@@ -1,7 +1,5 @@
 package personalData;
 
-import personalData.Record;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -38,17 +36,19 @@ public class AccountBook {
         records.set(index, replacement);
     }
 
-    // 지정 인덱스 시점에서 남아있는 잔액을 반환한다.
-    public int getBalance(int index) {
-        List<Record> sublist = records.subList(0, index+1);
-        Iterator<Record> ir = sublist.iterator();
+    // 잔액을 반환한다.
+    public long balance() {
+        long balance = 0;
 
-        int balance = 0;
+        Iterator<Record> ir = records.iterator();
         while(ir.hasNext()) {
-            Record r = ir.next();
-            balance += r.getChange();
+            balance += ir.next().recordBalance();
         }
         return balance;
     }
 
+    // Iterator를 반환한다.
+    public Iterator<Record> iterator() {
+        return this.records.iterator();
+    }
 }
