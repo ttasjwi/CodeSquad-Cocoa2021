@@ -19,6 +19,10 @@ public enum PaymentMethod {
         return PAYMENT_METHODS.get(code-1);
     }
 
+    public String getNameKor() {
+        return this.nameKor;
+    }
+
     public int getCode() {
         return this.code;
     }

@@ -53,9 +53,4 @@ public class Record {
         return this.paymentMethod;
     }
 
-    public String getPaymentMethodStr() {
-        return this.paymentMethod.name();
-    }
-
-
 }
