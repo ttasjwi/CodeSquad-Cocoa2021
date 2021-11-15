@@ -66,20 +66,20 @@ public class HangulTime {
     public String getClockHourOfAMPM() {
         return HangulHour.of(clock_Hour_Of_AMPM_Value()).name();
     }
-    
-    //TODO : 한글 분으로 반환하기
+
+    //한글 분을 반환받는다.
     public String getMinute() {
-        return minuteValue()+"분";
+        return HangulNumber.hangulTime(minuteValue())+"분";
     }
 
-    //TODO : 한글 초로 반환하기
+    //한글 초를 반환받는다.
     public String getSecond() {
-        return secondValue()+"초";
+        if (this.secondValue() == 0) return "";
+        return HangulNumber.hangulTime(secondValue())+"초";
     }
 
-
-    private String format() {
-
+    @Override
+    public String toString() {
         if (hourValue()==0 && minuteValue()==0 && secondValue()==0) {
             return "자정";
         }
@@ -88,13 +88,11 @@ public class HangulTime {
             return "정오";
         }
 
-        return getAMPM() + getClockHourOfAMPM() + getMinute() + getSecond();
-    }
-
-
-    @Override
-    public String toString() {
-        return this.format();
+        String am_pm = getAMPM();
+        String hangulHour = getClockHourOfAMPM();
+        String hangulMinute = (minuteValue()==0) ? "" : getMinute();
+        String hangulSecond = (secondValue()==0) ? "" : getSecond();
+        return am_pm + hangulHour + hangulMinute + hangulSecond;
     }
 
 }
