@@ -98,6 +98,7 @@ public class HangulTime {
             sb.append("정오");
             return sb.toString();
         }
+        sb.append(getAMPM());
         sb.append(getClockHourOfAMPM());
         if (minuteValue()!=0) sb.append(getMinute());
         if (secondValue()!=0) sb.append(getSecond());
