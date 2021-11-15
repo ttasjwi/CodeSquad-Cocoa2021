@@ -1,9 +1,9 @@
-import time.HangulTime;
+import view.HangulClock;
 
 public class Main {
 
     public static void main(String[] args) {
-        HangulTime nowTime = HangulTime.now();
-        System.out.println(nowTime);
+        HangulClock nowClock = HangulClock.now();
+        System.out.println(nowClock);
     }
 }
