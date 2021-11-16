@@ -30,12 +30,11 @@
 
 # 4. Map
 
-## 4.1 interface Map<K, V>
+## 4.1 <a href="4. Map/4.1 interface Map/interface Map<K, V>/Map.md" target="_blank"> interface Map<K,V></a>
 1. Map 인터페이스의 특징
 2. Map 인터페이스의 주요 메서드
 3. Map.Entry 인터페이스
 
-[링크]
 
 ## 4.2 HashMap, HashTable, ConcurrentHashMap
 ## 4.3 TreeMap
