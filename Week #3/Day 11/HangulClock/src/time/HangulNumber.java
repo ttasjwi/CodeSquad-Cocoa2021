@@ -1,7 +1,6 @@
 package time;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
 
 public class HangulNumber {
 
