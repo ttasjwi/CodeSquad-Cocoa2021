@@ -60,7 +60,7 @@ public class HangulTime {
 
 
     //한글 날짜
-    public String getMonth() {
+    public String getDay() {
         return HangulNumber.hangulTime(dayValue())+"일";
     }
 
@@ -88,7 +88,7 @@ public class HangulTime {
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
-        sb.append(getMonth());
+        sb.append(getDay());
 
         if (hourValue()==0 && minuteValue()==0 && secondValue()==0) {
             sb.append("자정");

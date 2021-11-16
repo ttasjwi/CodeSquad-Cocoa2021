@@ -26,8 +26,5 @@ public class HangulNumber {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        int value = new Scanner(System.in).nextInt();
-        System.out.println(hangulTime(value));
-    }
+
 }
