@@ -49,7 +49,7 @@ public class Shell {
 
         for (int i=0; i<inputSplit.length; i++) {
             if (i==0) {
-                currentCommand = inputSplit[i];
+                currentCommand = inputSplit[i].toLowerCase();
                 continue;
             }
             args.add(inputSplit[i]);
