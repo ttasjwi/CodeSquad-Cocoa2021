@@ -37,9 +37,22 @@ public class Shell {
             case "clock" :
                 clock();
                 break;
+            case "help" :
+                help();
+                break;
             default :
                 throw new IllegalArgumentException("당신은 올바르지 않은 형태의 명령어 혹은 인자를 입력하셨다...");
         }
+    }
+
+    private void help() {
+        if (args.size()==0) {
+            System.out.println("cal : 이번달 달력 출력");
+            System.out.println("cal yyyy MM : 지정 년월 달력 출력 (예) cal 2021 11");
+            System.out.println("clock : 현재 한글시계 출력");
+            System.out.println("quit : Shell 종료");
+        }
+
     }
 
     private void input() {
@@ -63,13 +76,19 @@ public class Shell {
             return;
         }
 
+        if (args.size() == 1) {
+            System.out.println("지정 년도 달력 출력은 현재 구현되지 않은 기능입니다.");
+            return;
+        }
+
         if (args.size() ==2) {
             int year = Integer.parseInt(args.get(0));
             int month = Integer.parseInt(args.get(1));
             calValidation(year, month);
             Calendar.print(year, month);
+            return;
         }
-
+        throw new IllegalArgumentException("cal 오류 : 인자의 갯수가 유효하지 않습니다.");
     }
 
     private void calValidation(int year, int month) {
