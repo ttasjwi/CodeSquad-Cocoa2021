@@ -54,7 +54,7 @@ public class Calendar {
         System.out.println("===========================");
         System.out.printf("　　　　<<%4d년 %2d월>>%n",year(),month());
         System.out.println("===========================");
-        System.out.printf("%3s %3s %3s %3s %3s %3s %3s%n", "SUN", "MON", "TUE", "WED", "WED", "THU", "SAT");
+        System.out.printf("%3s %3s %3s %3s %3s %3s %3s%n", "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
         System.out.println("===========================");
 
         LocalDate firstDate = firstDayOfMonth();
