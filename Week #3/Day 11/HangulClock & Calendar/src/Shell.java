@@ -1,4 +1,6 @@
+import calendar.CalApp;
 import calendar.Calendar;
+import clock.ClockApp;
 import clock.HangulClock;
 
 import java.util.ArrayList;
@@ -32,10 +34,10 @@ public class Shell {
     private void execute() {
         switch(currentCommand) {
             case "cal" :
-                cal();
+                new CalApp(args).run();
                 break;
             case "clock" :
-                clock();
+                new ClockApp(args).run();
                 break;
             case "help" :
                 help();
@@ -52,7 +54,6 @@ public class Shell {
             System.out.println("clock : 현재 한글시계 출력");
             System.out.println("quit : Shell 종료");
         }
-
     }
 
     private void input() {
@@ -67,36 +68,6 @@ public class Shell {
             }
             args.add(inputSplit[i]);
         }
-    }
-
-
-    private void cal() {
-        if (args.size() ==0) {
-            Calendar.printThisMonth();
-            return;
-        }
-
-        if (args.size() == 1) {
-            System.out.println("지정 년도 달력 출력은 현재 구현되지 않은 기능입니다.");
-            return;
-        }
-
-        if (args.size() ==2) {
-            int year = Integer.parseInt(args.get(0));
-            int month = Integer.parseInt(args.get(1));
-            calValidation(year, month);
-            Calendar.print(year, month);
-            return;
-        }
-        throw new IllegalArgumentException("cal 오류 : 인자의 갯수가 유효하지 않습니다.");
-    }
-
-    private void calValidation(int year, int month) {
-        if (!(1<=month && month<=12)) throw new IllegalArgumentException("올바르지 않은 월입니다. input : 1~12");
-    }
-
-    private static void clock() {
-        System.out.println(HangulClock.now());
     }
 
 }
