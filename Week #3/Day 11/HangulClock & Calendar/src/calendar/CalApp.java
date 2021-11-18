@@ -22,9 +22,20 @@ public class CalApp {
         }
 
         if (args.size() ==2) {
-            int year = Integer.parseInt(args.get(0));
-            int month = Integer.parseInt(args.get(1));
-            calValidation(year, month);
+            int year = 0;
+            int month = 0;
+            try {
+                year = Integer.parseInt(args.get(0));
+                month = Integer.parseInt(args.get(1));
+                calValidation(year, month);
+            } catch (NumberFormatException e) {
+                System.out.println("cal 오류 : 인자로 입력한 값이 정숫값이 아닙니다.");
+                return;
+            } catch (IllegalArgumentException ile) {
+                System.out.println(ile.getMessage());
+                return;
+            }
+
             Calendar.print(year, month);
             return;
         }

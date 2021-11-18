@@ -43,7 +43,7 @@ public class Shell {
                 help();
                 break;
             default :
-                throw new IllegalArgumentException("당신은 올바르지 않은 형태의 명령어 혹은 인자를 입력하셨다...");
+                throw new IllegalArgumentException("유효하지 않은 명령어입니다.");
         }
     }
 
