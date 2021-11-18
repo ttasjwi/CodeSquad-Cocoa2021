@@ -58,7 +58,7 @@ public class Calendar {
         System.out.println("===========================");
 
         LocalDate firstDate = firstDayOfMonth();
-        int dayOfweekOfFirstDate = firstDate.getDayOfWeek().getValue();
+        int dayOfweekOfFirstDate = firstDate.getDayOfWeek().getValue()%7;
         for (int i=0; i<dayOfweekOfFirstDate; i++) {
             System.out.print("    ");
         }
