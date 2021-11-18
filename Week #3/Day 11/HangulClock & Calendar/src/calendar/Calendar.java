@@ -57,17 +57,23 @@ public class Calendar {
         System.out.printf("%3s %3s %3s %3s %3s %3s %3s%n", "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
         System.out.println("===========================");
 
-        LocalDate firstDate = firstDayOfMonth();
-        int dayOfweekOfFirstDate = firstDate.getDayOfWeek().getValue()%7;
-        for (int i=0; i<dayOfweekOfFirstDate; i++) {
-            System.out.print("    ");
-        }
+        fillBlank();
+
         for (int i=1 ; i <= lengthOfMonth(); i++) {
             LocalDate date = LocalDate.of(year(),month(), i);
             System.out.printf("%3d ", date.getDayOfMonth());
             if (date.getDayOfWeek().getValue()%7 == 6) System.out.println();
         }
         System.out.println("\n===========================");
+    }
+
+    private void fillBlank() {
+        LocalDate firstDate = firstDayOfMonth();
+        int dayOfweekOfFirstDate = firstDate.getDayOfWeek().getValue()%7;
+
+        for (int i=0; i<dayOfweekOfFirstDate; i++) {
+            System.out.print("    ");
+        }
     }
 
     public static void printThisMonth() {
