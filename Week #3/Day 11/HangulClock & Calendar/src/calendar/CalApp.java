@@ -11,13 +11,25 @@ public class CalApp {
     }
 
     public void run() {
+
         if (args.size() ==0) {
             Calendar.printThisMonth();
             return;
         }
 
+        // TODO : 세로로 12개 달력을 출력하지 않고 다르게(가로로 늘여서) 출력하도록 해야한다. 그런데 이렇게 하면 필연적으로 달력 출력의 매커니즘을 바꿀 수밖에 없다...
         if (args.size() == 1) {
-            System.out.println("지정 년도 달력 출력은 현재 구현되지 않은 기능입니다.");
+            int year = 0;
+            try {
+                year = Integer.parseInt(args.get(0));
+            } catch (NumberFormatException e) {
+                System.out.println("cal 오류 : 인자로 입력한 값이 정숫값이 아닙니다.");
+                return;
+            }
+
+            for (int i=1 ; i<=12; i++) {
+                Calendar.print(year,i);
+            }
             return;
         }
 
