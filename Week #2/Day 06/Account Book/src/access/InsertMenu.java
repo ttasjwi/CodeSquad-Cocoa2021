@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class InsertMenu {
     private static final String INSERT_MENU =
-            "============================="
-            + "1. 입금"
-            + "2. 이체"
-            + "q. 나가기"
+            "=============================\n"
+            + "1. 입금\n"
+            + "2. 이체\n"
+            + "q. 나가기\n"
             + "=============================";
 
 
@@ -118,13 +118,13 @@ public class InsertMenu {
 
     private LocalDate inputLocalDate() {
         System.out.println("날짜를 입력해주세요. 예)2021-11-12");
-        System.out.println("LocalDate > ");
+        System.out.print("LocalDate > ");
         String input = SC.nextLine();
         try {
             LocalDate parseDate = LocalDate.parse(input);
             return parseDate;
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             System.out.println("날짜를 잘못 입력하셨습니다. 지정 형식에 맞게 입력해주세요.");
             return inputLocalDate();
         }

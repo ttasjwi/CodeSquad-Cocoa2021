@@ -30,16 +30,18 @@ public class SearchMenu {
 
     public void searchAll() {
         Iterator<Record> ir = accountBook.iterator();
-        System.out.printf("%15s %20s %20s %4s %50s%n", "날짜", "수입", "지출", "지불방식", "적요");
+        System.out.println("================================================================================================");
+        System.out.printf("%10s %20s %20s %4s %s%n", "날짜", "수입", "지출", "지불방식", "적요");
         while(ir.hasNext()) {
             Record record = ir.next();
-            System.out.printf("%16s %21s %21s %5s %51s%n",
+            System.out.printf("%11s %21s %21s %5s %s%n",
                     record.getLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE),
                     DECIMAL_FORMAT.format(record.getIncome()),
                     DECIMAL_FORMAT.format(record.getExpense()),
                     record.getPaymentMethod().getNameKor(),
                     record.getMsg());
         }
+        System.out.println("================================================================================================");
     }
 
 }
