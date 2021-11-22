@@ -36,8 +36,14 @@ java를 통해 GUI를 구현하기 위함
 ---
 
 # 2. AWT의 주요 컴포넌트
-## 2.1 Frame
-## 2.2 Button
+## <a href="2. AWT의 주요 컴포넌트/2.1 Frame/README.md" target="_blank">2.1 Frame</a>
+1) Frame
+2) Frame의 메서드들
+
+## <a href="2. AWT의 주요 컴포넌트/2.2 Button/README.md" target="_blank">2.2 Button</a>
+1) Button
+2) Button의 메서드들
+
 ## 2.3 Choice
 ## 2.4 List
 ## 2.5 Label
