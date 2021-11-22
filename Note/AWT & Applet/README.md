@@ -48,17 +48,17 @@ java를 통해 GUI를 구현하기 위함
 1) Choice
 2) Choice의 메서드들
 
-## 2.4 List
-## 2.5 Label
-## 2.6 Checkbox
-## 2.7 TextField
-## 2.8 TextArea
-## 2.9 Scrollbar
-## 2.10 Canvas
-## 2.11 Panel
-## 2.12 ScrollPane
-## 2.13 Dialog
-## 2.14 FileDialog
+## <a href="2. AWT의 주요 컴포넌트/2.4 List/README.md" target="_blank">2.4 List</a>
+## <a href="2. AWT의 주요 컴포넌트/2.5 Lable/README.md" target="_blank">2.5 Lable</a>
+## <a href="2. AWT의 주요 컴포넌트/2.6 Checkbox/README.md" target="_blank">2.6 Checkbox</a>
+## <a href="2. AWT의 주요 컴포넌트/2.7 TextField/README.md" target="_blank">2.7 TextField</a>
+## <a href="2. AWT의 주요 컴포넌트/2.8 TextArea/README.md" target="_blank">2.8 TextArea</a>
+## <a href="2. AWT의 주요 컴포넌트/2.9 Scrollbar/README.md" target="_blank">2.9 Scrollbar</a>
+## <a href="2. AWT의 주요 컴포넌트/2.10 Canvas/README.md" target="_blank">2.10 Canvas</a>
+## <a href="2. AWT의 주요 컴포넌트/2.11 Panel/README.md" target="_blank">2.11 Panel</a>
+## <a href="2. AWT의 주요 컴포넌트/2.12 ScrollPane/README.md" target="_blank">2.12 ScrollPane</a>
+## <a href="2. AWT의 주요 컴포넌트/2.13 Dialog/README.md" target="_blank">2.13 Dialog</a>
+## <a href="2. AWT의 주요 컴포넌트/2.14 FileDialog/README.md" target="_blank">2.14 FileDialog</a>
 
 ---
 
