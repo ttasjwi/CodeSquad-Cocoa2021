@@ -44,7 +44,10 @@ java를 통해 GUI를 구현하기 위함
 1) Button
 2) Button의 메서드들
 
-## 2.3 Choice
+## <a href="2. AWT의 주요 컴포넌트/2.3 Choice/README.md" target="_blank">2.3 Choice</a>
+1) Choice
+2) Choice의 메서드들
+
 ## 2.4 List
 ## 2.5 Label
 ## 2.6 Checkbox
