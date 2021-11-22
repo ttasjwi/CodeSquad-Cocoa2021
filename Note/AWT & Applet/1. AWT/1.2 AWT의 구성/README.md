@@ -25,7 +25,7 @@
 
 ---
 
-![Component와 그 하위 클래스에 대한 상속계층도](.img/Elements of AWT 1.jpg "Component와 그 하위 클래스에 대한 상속계층도")
+![Component와 그 하위 클래스에 대한 상속계층도](img/Elements of AWT 1.jpg "Component와 그 하위 클래스에 대한 상속계층도")
 
 ## 2) 일반 컴포넌트 : Component 클래스와 그 하위 클래스들
 - Button, Label, Checkbox, List, Choice, Scrollbar, Dialog, Frame, TextArea와 TextField, FileDialog
