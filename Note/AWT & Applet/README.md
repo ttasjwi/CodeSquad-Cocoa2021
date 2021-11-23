@@ -63,9 +63,13 @@ java를 통해 GUI를 구현하기 위함
 ---
 
 # 3. 그 외의 AWT 클래스
-## 3.1 Font
-## 3.2 Color
-
+## <a href="3. 그 외의 AWT 클래스/3.1 Font/README.md" target="_blank">3.1 Font</a>
+1) Font
+2) Font의 생성자
+3) 현재 시스템에 설치된 Font 가져오기
+## <a href="3. 그 외의 AWT 클래스/3.2 Color/README.md" target="_blank">3.2 Color</a>
+1) Color
+2) Color의 생성자
 ---
 
 # 4. 메뉴 만들기
@@ -98,7 +102,7 @@ java를 통해 GUI를 구현하기 위함
 
 ---
 
-# 8. 애플릿
+# 8. 애플릿(Applet)
 ## 8.1 애플릿(Applet)이란?
 ## 8.2 Applet의 생명주기(Life cycle)와 주요 메서드
 ## 8.3 Applet의 보안 제약(Security restriction)
