@@ -36,29 +36,20 @@ java를 통해 GUI를 구현하기 위함
 ---
 
 # 2. AWT의 주요 컴포넌트
-## <a href="2. AWT의 주요 컴포넌트/2.1 Frame/README.md" target="_blank">2.1 Frame</a>
-1) Frame
-2) Frame의 메서드들
-
-## <a href="2. AWT의 주요 컴포넌트/2.2 Button/README.md" target="_blank">2.2 Button</a>
-1) Button
-2) Button의 메서드들
-
-## <a href="2. AWT의 주요 컴포넌트/2.3 Choice/README.md" target="_blank">2.3 Choice</a>
-1) Choice
-2) Choice의 메서드들
-
-## <a href="2. AWT의 주요 컴포넌트/2.4 List/README.md" target="_blank">2.4 List</a>
-## <a href="2. AWT의 주요 컴포넌트/2.5 Lable/README.md" target="_blank">2.5 Lable</a>
-## <a href="2. AWT의 주요 컴포넌트/2.6 Checkbox/README.md" target="_blank">2.6 Checkbox</a>
-## <a href="2. AWT의 주요 컴포넌트/2.7 TextField/README.md" target="_blank">2.7 TextField</a>
-## <a href="2. AWT의 주요 컴포넌트/2.8 TextArea/README.md" target="_blank">2.8 TextArea</a>
-## <a href="2. AWT의 주요 컴포넌트/2.9 Scrollbar/README.md" target="_blank">2.9 Scrollbar</a>
-## <a href="2. AWT의 주요 컴포넌트/2.10 Canvas/README.md" target="_blank">2.10 Canvas</a>
-## <a href="2. AWT의 주요 컴포넌트/2.11 Panel/README.md" target="_blank">2.11 Panel</a>
-## <a href="2. AWT의 주요 컴포넌트/2.12 ScrollPane/README.md" target="_blank">2.12 ScrollPane</a>
-## <a href="2. AWT의 주요 컴포넌트/2.13 Dialog/README.md" target="_blank">2.13 Dialog</a>
-## <a href="2. AWT의 주요 컴포넌트/2.14 FileDialog/README.md" target="_blank">2.14 FileDialog</a>
+### <a href="2. AWT의 주요 컴포넌트/2.1 Frame/README.md" target="_blank">2.1 Frame</a>
+### <a href="2. AWT의 주요 컴포넌트/2.2 Button/README.md" target="_blank">2.2 Button</a>
+### <a href="2. AWT의 주요 컴포넌트/2.3 Choice/README.md" target="_blank">2.3 Choice</a>
+### <a href="2. AWT의 주요 컴포넌트/2.4 List/README.md" target="_blank">2.4 List</a>
+### <a href="2. AWT의 주요 컴포넌트/2.5 Lable/README.md" target="_blank">2.5 Lable</a>
+### <a href="2. AWT의 주요 컴포넌트/2.6 Checkbox/README.md" target="_blank">2.6 Checkbox</a>
+### <a href="2. AWT의 주요 컴포넌트/2.7 TextField/README.md" target="_blank">2.7 TextField</a>
+### <a href="2. AWT의 주요 컴포넌트/2.8 TextArea/README.md" target="_blank">2.8 TextArea</a>
+### <a href="2. AWT의 주요 컴포넌트/2.9 Scrollbar/README.md" target="_blank">2.9 Scrollbar</a>
+### <a href="2. AWT의 주요 컴포넌트/2.10 Canvas/README.md" target="_blank">2.10 Canvas</a>
+### <a href="2. AWT의 주요 컴포넌트/2.11 Panel/README.md" target="_blank">2.11 Panel</a>
+### <a href="2. AWT의 주요 컴포넌트/2.12 ScrollPane/README.md" target="_blank">2.12 ScrollPane</a>
+### <a href="2. AWT의 주요 컴포넌트/2.13 Dialog/README.md" target="_blank">2.13 Dialog</a>
+### <a href="2. AWT의 주요 컴포넌트/2.14 FileDialog/README.md" target="_blank">2.14 FileDialog</a>
 
 ---
 
@@ -73,7 +64,10 @@ java를 통해 GUI를 구현하기 위함
 ---
 
 # 4. 메뉴 만들기
-## 4.1 메뉴를 구성하는 컴포넌트
+## <a href="4. 메뉴 만들기/4.1 메뉴를 구성하는 컴포넌트/README.md" target="_blank">4.1 메뉴를 구성하는 컴포넌트</a>
+1) MenuComponent와 그 하위클래스들
+2) 메뉴 구성하기
+3) 메뉴 관련 컴포넌트들의 메서드들
 ## 4.2 PopupMenu
 
 ---
