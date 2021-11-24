@@ -104,7 +104,12 @@ HTML의 `<div>`처럼, 컴포넌트를 화면 상에 배치하는 용도로 사�
 1) paint()
 2) Graphics
 3) Graphics의 메서드들
-## 7.2 AWT 쓰레드와 repaint()
+## <a href="7. AWT의 그래픽/7.2 AWT 쓰레드와 repaint()/README.md" target="_blank">7.2 AWT 쓰레드와 repaint()</a>
+1) AWT 쓰레드
+2) AWT 쓰레드의 화면갱신 조건
+3) repaint()
+4) update(Graphics g)
+5) 화면 갱신 과정
 ## 7.3 Image를 이용해서 이미지 출력하기
 
 ---
