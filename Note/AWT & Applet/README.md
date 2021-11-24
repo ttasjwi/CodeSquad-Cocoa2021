@@ -100,7 +100,10 @@ HTML의 `<div>`처럼, 컴포넌트를 화면 상에 배치하는 용도로 사�
 ---
 
 # 7. AWT의 그래픽
-## 7.1 paint()와 Graphics
+## <a href="7. AWT의 그래픽/7.1 paint()와 Graphics/README.md" target="_blank">7.1 paint()와 Graphics</a>
+1) paint()
+2) Graphics
+3) Graphics의 메서드들
 ## 7.2 AWT 쓰레드와 repaint()
 ## 7.3 Image를 이용해서 이미지 출력하기
 
