@@ -52,7 +52,11 @@
 3) filter : 조건식 -> 걸러내기
 4) distinct : 중복제거
 
-## 4.2 정렬 - sorted()
+## <a href="4. Stream의 중간연산/4.2 정렬 - sorted()/README.md" target="_blank">4.2 정렬 - sorted()</a>
+1) 정렬의 필요조건
+2) Stream의 정렬 - sorted()  
+3) <a href="../Collection Framework/6. 정렬/6.2 interface Comparator/README.md" target="_blank">Comparator\<T> 재학습</a>
+
 ## 4.3 변환(map)
 ## 4.4 조회(peek)
 ## 4.5 다른 Stream으로
