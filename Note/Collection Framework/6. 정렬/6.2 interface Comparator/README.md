@@ -73,7 +73,9 @@ developers.sort(Developer::getAge);
    Comparator.<Integer>reverseOrder() : Integer 기본정렬기준의 역순(내림차순)
    ```
    
-![img](img/comparing.jpg)
+![img](img/comparing.jpg)  
+
+
 3. comparing : 지정한 함수의 함숫값의 기본정렬 기준으로 정렬.
 4. comparingInt, comparingLong, comparingDouble : 함숫값이 기본형인경우 사용. 오토박싱/언박싱을 생략하여 성능이 향상됨
    - 기본 정렬 기준이 존재하지 않을 경우 별도의 Comparator를 지정해야한다.
