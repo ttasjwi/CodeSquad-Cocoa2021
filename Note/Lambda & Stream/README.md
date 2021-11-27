@@ -20,7 +20,12 @@
 # 2. java.util.function 패키지
 ## 2.1 여러가지 함수형 인터페이스
 ## 2.2 Function의 합성과 Predicate의 결합
-## 2.3 메서드 참조
+## <a href="2. java.util.function 패키지/2.3 메서드 참조/README.md" target="_blank">2.3 메서드 참조</a>
+1) 메서드 참조란?
+2) static 메서드 참조
+3) 임의의 객체마다 특정 인스턴스 메서드 참조
+4) 특정 객체의 인스턴스 메서드 참조
+5) 생성자의 메서드 참조
 
 ---
 
@@ -36,6 +41,26 @@
 6) 파일 기반
 7) 빈 스트림
 8) 두 스트림의 연결
+
+---
+
+# 4. Stream의 중간연산
+
+## 4.1 자르기, 걸러내기
+1) skip : 앞의 n개 건너뛰기
+2) limit : 개수 제한
+3) filter : 조건식 -> 걸러내기
+4) distinct : 중복제거
+
+## 4.2 정렬 - sorted()
+## 4.3 변환(map)
+## 4.4 조회(peek)
+## 4.5 다른 Stream으로
+
+---
+
+# 5. 
+
 
 ## 3.3 Stream의 중간연산
 ## 3.4 Optional\<T>와 OptionalInt
