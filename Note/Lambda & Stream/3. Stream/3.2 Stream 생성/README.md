@@ -1,6 +1,6 @@
 ---
 
-## <a href = "../../README.md" target="_blank">Lambda & Stream</a>
+## <a href = "../../README.md" target="_blank">Lambda & Stream</a>  
 
 ### 3. Stream
 #### 3.2 Stream 생성
@@ -12,6 +12,7 @@
 6) 파일 기반
 7) 빈 스트림
 8) 두 스트림의 연결
+
 ---
 
 # 3.2 Stream 생성
