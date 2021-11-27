@@ -53,7 +53,41 @@
 
 # 6. 정렬
 
-## Comparator, Comparable
+정렬에 필요한 것
+- 정렬 대상
+- 정렬 대상을 모아둔 데이터군 : 배열, 컬렉션(List, Set, Map), Stream 
+- 정렬 기준
+
+## 6.1 기본 정렬 기준 : Comparable 구현
+- 어떤 객체의 기본 정렬 기준을 구현하는데 사용
+- java.lang 패키지에 존재하기 때문에 별도의 import 필요 없음.
+- public int compareTo(T t) 을 완성하면 됨
+    - 반환값 음수 : 작은 값이 앞에 정렬됨.
+    - 반환값 0 : 정렬 순위가 같다.
+    - 반환값 양수 : 뒤에 정렬됨.
+    - jdk 라이브러리에 포함된 대다수의 클래스들은 Comparable이 구현되어 있다.
+        - 예) 래퍼클래스(Integer, Double, ...) , String, LocalDate, LocalTime, ...
+
+## 6.2 사용자정의 정렬 기준 : Comparator 구현
+- 별도의 정렬기준을 구현하는데 사용.
+- import java.util.Comparator;
+- public int compare(T t1, T t2) 을 완성하면 됨.
+    - 반환값이 음수 : 작은 값이 앞에 정렬됨
+    - 반환값이 0 : 정렬 순위가 같다.
+    - 반환값이 양수 : 뒤에 정렬됨.
+
+## 6.3 정렬하기
+- List의 sort()
+    - default void sort(Comparator<? super E> c) : List인터페이스의 디폴트 메서드. 1.8부터 사용 가능.
+- Arrays.sort()
+    - public static void sort(Object[] a) : Comparable 구현에 의한 정렬
+    - public static <T> void sort(T[] a, Comparator<? super T> c) : Comparator 구현에 의한 정렬
+- Collections.sort()
+    - public static <T extends Comparable<? super T>> void sort(List<T> list) : Comparable 구현에 의한 정렬
+    - public static <T> void sort(List<T> list, Comparator<? super T> c) : Comparator 구현에 의한 정렬
+
+## 6.4 더 알아보기
+- Stream에서의 정렬기법
 
 ---
 
