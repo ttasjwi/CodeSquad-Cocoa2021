@@ -61,26 +61,26 @@
 ## <a href="6. 정렬/6.1 interface Comparable/README.md" target="_blank">6.1 interface Comparable\<T></a>
 1) interface Comparable\<T>
 2) int compareTo()
-## 6.2 interface Comparator\<T>
-- 별도의 정렬기준을 구현하는데 사용.
-- import java.util.Comparator;
-- public int compare(T t1, T t2) 을 완성하면 됨.
-    - 반환값이 음수 : 작은 값이 앞에 정렬됨
-    - 반환값이 0 : 정렬 순위가 같다.
-    - 반환값이 양수 : 뒤에 정렬됨.
+## <a href="6. 정렬/6.2 interface Comparator/README.md" target="_blank">6.2 interface Comparator\<T></a>
+1) interface Comparator\<T>
+2) int compare(T o1, T o2);
+3) 람다식으로 Comparator\<T> 표현하기
+4) 여러가지 static 메서드
+5) 여러가지 default 메서드
+6) 유용한 Comparator 상수
 
 ## 6.3 정렬하기
 - List의 sort()
-    - default void sort(Comparator<? super E> c) : List인터페이스의 디폴트 메서드. 1.8부터 사용 가능.
+  - default void sort(Comparator<? super E> c) : List인터페이스의 디폴트 메서드. 1.8부터 사용 가능.
 - Arrays.sort()
-    - public static void sort(Object[] a) : Comparable 구현에 의한 정렬
-    - public static <T> void sort(T[] a, Comparator<? super T> c) : Comparator 구현에 의한 정렬
+  - public static void sort(Object[] a) : Comparable 구현에 의한 정렬
+  - public static <T> void sort(T[] a, Comparator<? super T> c) : Comparator 구현에 의한 정렬
 - Collections.sort()
-    - public static <T extends Comparable<? super T>> void sort(List<T> list) : Comparable 구현에 의한 정렬
-    - public static <T> void sort(List<T> list, Comparator<? super T> c) : Comparator 구현에 의한 정렬
+  - public static <T extends Comparable<? super T>> void sort(List<T> list) : Comparable 구현에 의한 정렬
+  - public static <T> void sort(List<T> list, Comparator<? super T> c) : Comparator 구현에 의한 정렬
 
-## 6.4 더 알아보기
-- Stream에서의 정렬기법
+- Stream의 sorted()
+
 
 ---
 
