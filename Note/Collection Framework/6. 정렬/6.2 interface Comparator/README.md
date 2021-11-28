@@ -99,7 +99,9 @@ developers.sort(Developer::getAge);
 
 ## 5) 여러가지 default 메서드
 1. reversed() : 이 Comparator의 역순에 해당하는 Comparator<T>를 반환함
-2. thenComparing() : 추가 정렬기준을 덧붙이는데 사용. 함숫값의 기본 정렬 기준으로 정렬
+2. thenComparing() : 추가 정렬기준을 덧붙이는데 사용.
+   - `Comparator<T>`를 지정하거나
+   - Function을 지정하고, 지정 Function의 함숫값의 기본 정렬 기준으로 정렬
 3. thenComparingInt, thenComparingLong, thenComparingDouble : 함숫값이 기본형인 경우 사용. 오토박싱/언박싱을 생략하여 성능이 향상됨.
 ```
 default <U> Comparator<T> thenComparing(
@@ -114,7 +116,7 @@ Comparator<Student> comp
 ---
 
 ## 6) 유용한 Comparator 상수
-
-- public static final Comparator<String> CASE_INSENSITIVE_ORDER : String을 대소문자 구분 안하고 정렬
+1. String
+   - public static final Comparator\<String> CASE_INSENSITIVE_ORDER : String을 대소문자 구분 안하고 정렬
 
 ---
