@@ -37,7 +37,7 @@
 2) 가변인자, 배열 기반 Stream
 3) 특정 범위의 정수
 4) 난수 Stream
-5) 람다식 기반 Stream : iterate(), generate()
+5) 람다식 기반 Stream - iterate(), generate()
 6) 파일 기반
 7) 빈 스트림
 8) 두 스트림의 연결
@@ -57,23 +57,12 @@
 2) Stream의 정렬 - sorted()  
 3) <a href="../Collection Framework/6. 정렬/6.2 interface Comparator/README.md" target="_blank">Comparator\<T> 재학습</a>
 
-## 4.3 변환(map)
-## 4.4 조회(peek)
-## 4.5 다른 Stream으로
+## 4.3 조회
+## 4.4 변환(map)
 
 ---
 
-# 5. 
-
-
-## 3.3 Stream의 중간연산
-## 3.4 Optional\<T>와 OptionalInt
-## 3.5 Stream의 최종 연산
-## 3.6 Collect()
-## 3.7 Collector 구현하기
-## 3.8 Stream의 변환
+# 5. Stream의 최종연산
 
 ---
-
-# 1.1 람다식
 

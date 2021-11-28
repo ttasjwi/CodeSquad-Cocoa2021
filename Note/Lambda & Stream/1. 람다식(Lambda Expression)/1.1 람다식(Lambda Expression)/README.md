@@ -39,11 +39,11 @@ jdk 1.8부터는 함수형 인터페이스 및 람다식의 도입으로 특정 
 ---
 
 ## 4) 익명 클래스
-익명 클래스에 대한 기본적인 내용 정리 : <a href="../../OOP/15. 익명 클래스/15.1 익명 클래스(anonymous class)/README.md" target="_blank"> 링크</a>
+익명 클래스에 대한 기본적인 내용 정리 : <a href="../../../OOP/15. 익명 클래스/15.1 익명 클래스(anonymous class)/README.md" target="_blank"> 링크</a>
 
 - 특정 상위클래스를 상속받거나, 또는 인터페이스를 구현한 일회성 클래스의 객체
 - 구현하고 싶은 메서드를 오버라이드하고, 상위 클래스 또는 인터페이스로 Wrapping하여, 메서드를 전달할 수 있었음
-  - 이 방식을 AWT의 이벤트리스너-이벤트핸들러 연결에 사용했었다. : <a href="../../AWT & Applet/6. 이벤트 처리(event handling)/6.1 이벤트(event)/README.md" target="_blank"> 링크</a>
+  - 이 방식을 AWT의 이벤트리스너-이벤트핸들러 연결에 사용했었다. : <a href="../../../AWT & Applet/6. 이벤트 처리(event handling)/6.1 이벤트(event)/README.md" target="_blank"> 링크</a>
 
 ---
 

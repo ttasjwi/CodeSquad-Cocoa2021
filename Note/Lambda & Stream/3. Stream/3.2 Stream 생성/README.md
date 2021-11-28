@@ -8,7 +8,7 @@
 2) 가변인자, 배열 기반 Stream
 3) 특정 범위의 정수
 4) 난수 Stream
-5) 람다식 기반 Stream : iterate(), generate()
+5) 람다식 기반 Stream - iterate(), generate()
 6) 파일 기반
 7) 빈 스트림
 8) 두 스트림의 연결
@@ -93,7 +93,7 @@ DoubleStream doubles(long streamSize, double begin, double end)
 
 ---
 
-## 5) 람다식 기반 Stream : iterate(), generate()
+## 5) 람다식 기반 Stream - iterate(), generate()
 
 Stream 클래스의 static 메서드인 iterate(), generate()는 인자로 한 람다식을 기반으로 무한 Stream을 반환한다.
 
