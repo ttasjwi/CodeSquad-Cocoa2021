@@ -1,5 +1,53 @@
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Species {
+
+    private static final Map<String, Species> SPECIES_MAP = initSpeciesMap();
+
+    private static Map<String, Species> initSpeciesMap() {
+        List<String> lines = inputData();
+
+        HashMap<String, Species> speciesMap = new HashMap<>();
+        for (String line : lines) {
+            String[] lineSplit = line.split("\t");
+            Species species = getSpecies(lineSplit);
+            speciesMap.put(species.getName(), species);
+        }
+        return speciesMap;
+    }
+
+    private static Species getSpecies(String[] lineSplit) {
+        String name = lineSplit[0];
+        int hp = Integer.parseInt(lineSplit[1]);
+        int attack = Integer.parseInt(lineSplit[2]);
+        int block = Integer.parseInt(lineSplit[3]);
+        int contact = Integer.parseInt(lineSplit[4]);
+        int defense = Integer.parseInt(lineSplit[5]);
+        int speed = Integer.parseInt(lineSplit[6]);
+
+        Species species = new Species(name, hp, attack, block, contact, defense, speed);
+        return species;
+    }
+
+    private static List<String> inputData() {
+        List<String> lines = new ArrayList<>();
+        final Path DATA_SRC = Paths.get("./src/Stat_table.txt");
+        try {
+            Files.lines(DATA_SRC, Charset.defaultCharset()).forEach(lines::add);
+        } catch(IOException ie) {
+            System.out.println("종족데이터 로딩 실패!");
+        }
+        return lines;
+    }
+
 
     private String name; // 종족명
     private int hp; // hp
@@ -9,7 +57,7 @@ public class Species {
     private int defense; // 특방
     private int speed; // 스피드
 
-    public Species(String name, int hp, int attack, int block, int contact, int defense, int speed) {
+    private Species(String name, int hp, int attack, int block, int contact, int defense, int speed) {
         this.name = name;
         this.hp = hp;
         this.attack = attack;
@@ -17,6 +65,10 @@ public class Species {
         this.contact = contact;
         this.defense = defense;
         this.speed = speed;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getHp() {
