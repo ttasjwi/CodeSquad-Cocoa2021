@@ -50,4 +50,17 @@
 Main 메서드에서 Application 객체를 생성하고 run() 메서드를 호출하여 실행한다.
 실행이 종료되면 프로그램이 종료된다.
 
+## 기반 데이터
+### 1) 종족값 : Species
+- 종족별 종족값을 정의한 클래스
+- `Stat_table.txt`을 읽어와서, 라인단위로 분리 후 종족값 모음Map인 Map<String, Species> `SPECIES_MAP`에 일괄 추가.
+- 생성자에 private 접근제어자를 걸어뒀기 때문에 종족 객체를 더 이상 추가할 수 없다.
+- 실제 종족 데이터에 접근하려면 Species.of(종족명)을 통해 접근해야한다. (`SPECIES_MAP`에서 조회)
+
+### 2) 성격 : Nature
+- 성격별 능력치 배율을 정의한 클래스
+- `Nature_table.txt`를 읽어와서 라인단위로 분리 후 성격 모음Map인 Map<String, Nature> `NATURE_MAP`에 일괄 추가
+- 생성자에 private 접근제어자를 걸어뒀기 때문에 성격 객체를 더 이상 추가할 수 없다.
+- 실제 성격 데이터에 접근하려면 Nature,of(성격명)을 통해 접근해야한다. (`NATURE_MAP`에서 조회)
+
 ---
