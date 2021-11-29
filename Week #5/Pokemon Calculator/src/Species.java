@@ -37,6 +37,10 @@ public class Species {
         return species;
     }
 
+    public static Species of(String name) {
+        return SPECIES_MAP.get(name);
+    }
+
     private static List<String> inputData() {
         List<String> lines = new ArrayList<>();
         final Path DATA_SRC = Paths.get("./src/Stat_table.txt");
@@ -47,7 +51,6 @@ public class Species {
         }
         return lines;
     }
-
 
     private String name; // 종족명
     private int hp; // hp
