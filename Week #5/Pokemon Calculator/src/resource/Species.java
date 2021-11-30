@@ -1,12 +1,11 @@
+package resource;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Species {
 
@@ -41,9 +40,13 @@ public class Species {
         return SPECIES_MAP.get(name);
     }
 
+    public static Set<String> nameSet() {
+        return SPECIES_MAP.keySet();
+    }
+
     private static List<String> inputData() {
         List<String> lines = new ArrayList<>();
-        final Path DATA_SRC = Paths.get("./src/Stat_table.txt");
+        final Path DATA_SRC = Paths.get("./src/resource/Species_Table.txt");
         try {
             Files.lines(DATA_SRC, Charset.defaultCharset()).forEach(lines::add);
         } catch(IOException ie) {

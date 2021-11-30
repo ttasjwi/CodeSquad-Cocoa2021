@@ -1,12 +1,11 @@
+package resource;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Nature {
 
@@ -26,7 +25,7 @@ public class Nature {
     //경로로부터 Nature 테이블 데이터를 가져온다.
     private static List<String> inputDataSrc() {
         List<String> lines = new ArrayList<>();
-        final Path DATA_SRC = Paths.get("./src/Nature_Table.txt");
+        final Path DATA_SRC = Paths.get("./src/resource/Nature_Table.txt");
         try {
             Files.lines(DATA_SRC, Charset.defaultCharset()).forEach(lines::add);
         } catch(IOException ie) {
@@ -69,6 +68,10 @@ public class Nature {
         return NATURE_MAP.get(natureName);
     }
 
+    public static Set<String> nameSet() {
+        return NATURE_MAP.keySet();
+    }
+
     public String getNatureName() {
         return natureName;
     }
@@ -91,5 +94,8 @@ public class Nature {
 
     public double getSpeedScale() {
         return speedScale;
+    }
+
+    public static void main(String[] args) {
     }
 }
