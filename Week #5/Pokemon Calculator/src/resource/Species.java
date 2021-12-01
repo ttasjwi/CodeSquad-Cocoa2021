@@ -37,8 +37,7 @@ public class Species {
 
         Map<String, Species> speciesMap = new HashMap<>();
         for (String line : lines) {
-            String[] lineSplit = line.split("\t"); // 라인별로 '\t'단위로 문자열 분리한다.
-            Species species = createSpecies(lineSplit); // 분리 문자열을 기반으로 species 객체를 정의, 생성
+            Species species = createSpecies(line); // 각 라인별 데이터를 기반으로 species 객체를 정의, 생성
             speciesMap.put(species.getName(), species); // 정의된 species마다 Map에 put
         }
         return speciesMap;
@@ -59,7 +58,9 @@ public class Species {
     }
 
     //분리 문자열배열을 기반으로, Species 객체를 생성한다.
-    private static Species createSpecies(String[] lineSplit) {
+    private static Species createSpecies(String line) {
+        String[] lineSplit = line.split("\t"); // 라인별로 '\t'단위로 문자열 분리한다.
+
         String name = lineSplit[0];
         int hp = Integer.parseInt(lineSplit[1]);
         int attack = Integer.parseInt(lineSplit[2]);
