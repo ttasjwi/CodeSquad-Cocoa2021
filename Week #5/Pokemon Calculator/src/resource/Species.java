@@ -48,7 +48,7 @@ public class Species {
         List<String> tableSplits = new ArrayList<>();
 
         try {
-            final Path DATA_SRC = Paths.get(DATA_SRC_DIR);
+            final Path DATA_SRC = Paths.get(fileDir);
             Files.lines(DATA_SRC, Charset.defaultCharset())
                     .forEach(tableSplits::add);
         } catch(IOException ie) {
