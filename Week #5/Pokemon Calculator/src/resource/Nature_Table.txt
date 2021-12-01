@@ -6,7 +6,7 @@ Calm	0.9	1	1	1.1	1
 Careful	1	1	0.9	1.1	1
 Docile	1	1	1	1	1
 Gentle	1	0.9	1	1.1	1
-Hardy
+Hardy	1	1	1	1	1
 Hasty	1	0.9	1	1	1.1
 Impish	1	1.1	0.9	1	1
 Jolly	1	1	0.9	1	1.1
