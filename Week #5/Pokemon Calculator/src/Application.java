@@ -15,7 +15,7 @@ public class Application extends Frame {
 
     private void initApplication() {
         setTitle(TITLE);
-        setSize(FRAME_WIDTH,FRAME_HEIGHT);
+        initFrameBounds();
         setLayout(null);
 
         Button button = new Button("IV Calculator");
@@ -31,6 +31,19 @@ public class Application extends Frame {
         });
         setResizable(false);
         setVisible(true);
+    }
+
+    //Frame의 초기 위치를 화면 정가운데에 두도록 한다.
+    private void initFrameBounds() {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screenSize = toolkit.getScreenSize();
+
+        final int SCREEN_WIDTH = screenSize.width;
+        final int SCREEN_HEIGHT = screenSize.height;
+
+        final int FRAME_X = SCREEN_WIDTH/2 - FRAME_WIDTH/2;
+        final int FRAME_Y = SCREEN_HEIGHT/2 - FRAME_HEIGHT/2;
+        setBounds(FRAME_X, FRAME_Y, FRAME_WIDTH, FRAME_HEIGHT);
     }
 
     public void open() {
