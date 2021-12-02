@@ -7,12 +7,11 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.*;
-import java.util.List;
 
 class IvCalFrame extends Frame {
     private static final String TITLE = "IVCalculator";
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 600;
+    private static final int FRAME_WIDTH = 700;
+    private static final int FRAME_HEIGHT = 600;
 
     // 입력 필드
     private Choice speciesChoice = getItems(Species.nameSet()); // 종족
@@ -39,29 +38,27 @@ class IvCalFrame extends Frame {
         init();
     }
 
+    //창을 초기화
     private void init() {
+        initFrame();
+        addMarginTop(); // 상단 여백
+        addInputPanel(); // TODO : 입력판넬 생성 및 추가
+        addOutputPanel(); //TODO : 결과 출력창 생성 및 추가
+    }
+
+    //Frame 맞추기
+    private void initFrame() {
         setTitle(TITLE);
-        setSize(WIDTH, HEIGHT);
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setBackground(Color.white);
         addWindowListener(new WindowAdapter() { // 마우스 클릭 시 창을 안 보이게 한다. -> 더 이상 이 창에 접근할 방법이 없어짐.
             @Override
             public void windowClosing(WindowEvent e) {
                 setVisible(false);
             }
         });
+        setLayout(null);
         setResizable(false); // 창의 크기를 변경할 수 없게 한다.
-
-        add(speciesChoice);
-        add(levelField);
-        add(natureChoice);
-        add(natureChoice);
-
-        add(hpStatField);
-        add(attackStatField);
-        add(blockStatField);
-        add(contactStatField);
-        add(defenseStatField);
-        add(speedStatField);
-        add(calButton);
     }
 
     // 지정 Collection<String>에서 item들을 긁어와, Choice에 저장해 반환
@@ -71,6 +68,22 @@ class IvCalFrame extends Frame {
                 .sorted()
                 .forEach(items::add);
         return items;
+    }
+
+    // 상단 여백 추가
+    private void addMarginTop() {
+        Panel marginTop = new Panel();
+        marginTop.setBounds(0,0,FRAME_WIDTH,50);
+        marginTop.setBackground(Color.black);
+        add(marginTop);
+    }
+
+    // TODO : 입력 판넬 생성 및 추가
+    private void addInputPanel() {
+        Panel inputPanel = new Panel();
+        inputPanel.setBounds(0,50,FRAME_WIDTH,400);
+        inputPanel.setBackground(Color.red);
+        add(inputPanel);
     }
 
     //버튼을 생성
@@ -86,8 +99,9 @@ class IvCalFrame extends Frame {
         return button;
     }
 
+    //TODO : 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
     private void printResult(Map<String,String> results) {
-        //TODO : 화면에 결과를 출력하기
+
     }
 
     // 각 필드로부터 인자들을 읽어온다.
@@ -114,4 +128,8 @@ class IvCalFrame extends Frame {
         return args;
     }
 
+    //TODO : 결과 출력창 생성 및 추가
+    private void addOutputPanel() {
+
+    }
 }
