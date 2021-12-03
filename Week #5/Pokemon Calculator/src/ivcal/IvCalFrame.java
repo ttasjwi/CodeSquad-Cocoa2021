@@ -718,8 +718,8 @@ class IvCalFrame extends Frame {
         this.attackBaseStatOutputLabel.setText(results.get("AttackBaseStat"));
         this.blockBaseStatOutputLabel.setText(results.get("BlockBaseStat"));
         this.contactBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
-        this.defenseBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
-        this.speedBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
+        this.defenseBaseStatOutputLabel.setText(results.get("DefenseBaseStat"));
+        this.speedBaseStatOutputLabel.setText(results.get("SpeedBaseStat"));
         this.totalBaseStatOutputLabel.setText(results.get("TotalBaseStat"));
 
         this.attackScaleOutputLabel.setText(results.get("AttackScale"));
