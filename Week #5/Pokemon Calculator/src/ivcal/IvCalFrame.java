@@ -12,7 +12,7 @@ import java.util.List;
 class IvCalFrame extends Frame {
     private static final String TITLE = "IVCalculator";
     private static final int FRAME_WIDTH = 700;
-    private static final int FRAME_HEIGHT = 600;
+    private static final int FRAME_HEIGHT = 800;
     private static final Font LABEL_FONT = new Font("SanSerif",Font.BOLD, 15);
     private static final Font CHOICE_FONT = new Font("SanSerif", Font.PLAIN,15);
     private static final Color FRAME_COLOR = new Color(46,171,254);
@@ -68,6 +68,7 @@ class IvCalFrame extends Frame {
     private Label contactIVRangeOutputLabel = makeLabel("",200, 30);
     private Label defenseIVRangeOutputLabel = makeLabel("",200, 30);
     private Label speedIVRangeOutputLabel = makeLabel("",200, 30);
+    private TextArea errorLogArea = makeErrorLogArea();
 
     public IvCalFrame() {
         init();
@@ -113,6 +114,7 @@ class IvCalFrame extends Frame {
         addMarginTop(); // 상단 여백
         addInputPanel(); // 입력판넬 생성 및 추가
         addOutputPanel(); // 결과 출력창 생성 및 추가
+        addErrorLogPanel(); // TODO: 에러 로그 판넬 추가
     }
 
     //Frame 맞추기
@@ -376,7 +378,6 @@ class IvCalFrame extends Frame {
     }
 
 
-
     // 각 필드로부터 인자들을 읽어온다.
     private Map<String, String> getArgs() {
         Map<String,String> args = new HashMap<>();
@@ -404,7 +405,7 @@ class IvCalFrame extends Frame {
     // 결과 출력창 생성 및 추가
     private void addOutputPanel() {
         Panel outPutPanel = new Panel();
-        outPutPanel.setBounds(0,240,FRAME_WIDTH,300);
+        outPutPanel.setBounds(0,240,FRAME_WIDTH,270);
         outPutPanel.setLayout(null);
 
         //출력부 최상단 : 레벨, 종족 출력
@@ -710,6 +711,41 @@ class IvCalFrame extends Frame {
         return outputLine8;
     }
 
+    private void addErrorLogPanel() {
+        Panel errorLogPanel = new Panel();
+        errorLogPanel.setBounds(0,510, FRAME_WIDTH, 290);
+        errorLogPanel.setBackground(Color.PINK);
+        errorLogPanel.setLayout(null);
+
+        Panel errolLogTop = new Panel();
+        errolLogTop.setBounds(0,0,FRAME_WIDTH, 30);
+
+        Label logLabel = makeLabel("Error Log", 200, errolLogTop.getHeight());
+        logLabel.setFont(LABEL_FONT);
+        errolLogTop.add(logLabel);
+
+        errorLogPanel.add(errolLogTop);
+
+        Panel logAreaPanel = new Panel();
+        logAreaPanel.setBounds(0,30,FRAME_WIDTH,250);
+        logAreaPanel.setLayout(null);
+
+        TextArea errorLogArea = this.errorLogArea;
+        errorLogArea.setLocation(15,0);
+        logAreaPanel.add(errorLogArea);
+
+        errorLogPanel.add(logAreaPanel);
+
+        add(errorLogPanel);
+    }
+
+    private TextArea makeErrorLogArea() {
+        TextArea errorLogArea = new TextArea("",10,20,TextArea.SCROLLBARS_VERTICAL_ONLY);
+        errorLogArea.setSize(FRAME_WIDTH-30, 240);
+        errorLogArea.setEditable(false);
+        return errorLogArea;
+    }
+
     // 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
     private void printResult(Map<String,String> results) {
         this.levelOutputLabel.setText(results.get("Level"));
@@ -745,8 +781,10 @@ class IvCalFrame extends Frame {
 
     // TODO : 별도의 로그창을 만들어서, 로그창에 예외 내력들을 쭉 출력하기
     private void printExceptionLogs(List<Exception> exceptions) {
+        StringBuffer sb = new StringBuffer();
         for(Exception e : exceptions) {
-            System.out.println(e.getMessage());
+            sb.append("* ").append(e.getMessage()).append('\n');
         }
+        this.errorLogArea.setText(sb.toString());
     }
 }
