@@ -95,8 +95,8 @@ class IvCalFrame extends Frame {
             Map<String, String> results = ivCal.getResults();
             List<Exception> exceptions = ivCal.getExceptions();
 
-            printResult(results); // TODO : 결과를 화면에 출력한다.
-            printExceptionLogs(exceptions);
+            printResult(results);
+            printExceptionLogs(exceptions); // TODO : 예외 로그창에 예외들을 출력한다.
         });
         return button;
     }
@@ -111,8 +111,8 @@ class IvCalFrame extends Frame {
     private void init() {
         initFrame();
         addMarginTop(); // 상단 여백
-        addInputPanel(); // TODO : 입력판넬 생성 및 추가
-        addOutputPanel(); //TODO : 결과 출력창 생성 및 추가
+        addInputPanel(); // 입력판넬 생성 및 추가
+        addOutputPanel(); // 결과 출력창 생성 및 추가
     }
 
     //Frame 맞추기
@@ -401,45 +401,45 @@ class IvCalFrame extends Frame {
         return args;
     }
 
-    //TODO : 결과 출력창 생성 및 추가
+    // 결과 출력창 생성 및 추가
     private void addOutputPanel() {
         Panel outPutPanel = new Panel();
         outPutPanel.setBounds(0,240,FRAME_WIDTH,300);
         outPutPanel.setLayout(null);
 
-        //TODO : 출력부1 : 레벨 및 종족 출력부
+        //출력부 최상단 : 레벨, 종족 출력
         Panel outputTop = makeOutputTop();
         outPutPanel.add(outputTop);
 
-        //TODO : 출력부2 : 라벨(종족값 라벨, 범위, 가능 범위)
+        // 출력부1 : 라벨(baseStats, stat Scale, ValidStatRange,Possible Stat Range, Possible IV Range)
         Panel outputLine1 = makeOutputLine1();
         outPutPanel.add(outputLine1);
 
-        //TODO : 출력부3 :  HP
+        // 출력부2 : Hp
         Panel outputLine2 = makeOutputLine2();
         outPutPanel.add(outputLine2);
 
-        //TODO : 출력부4 : 공격
+        // 출력부3 : 공격
         Panel outputLine3 = makeOutputLine3();
         outPutPanel.add(outputLine3);
 
-        //TODO : 출력부5 : 방어
+        // 출력부4 : 방어
         Panel outputLine4 = makeOutputLine4();
         outPutPanel.add(outputLine4);
 
-        //TODO : 출력부6 : 특수공격
+        // 출력부5 : 특수공격
         Panel outputLine5 = makeOutputLine5();
         outPutPanel.add(outputLine5);
 
-        //TODO : 출력부7 : 특수방어
+        // 출력부6 : 특수방어
         Panel outputLine6 = makeOutputLine6();
         outPutPanel.add(outputLine6);
 
-        //TODO : 출력부8 : 스피드
+        // 출력부7 : 스피드
         Panel outputLine7 = makeOutputLine7();
         outPutPanel.add(outputLine7);
 
-        //TODO : 출력부9 : 종족값 총합
+        // 출력부8 : 종족값 총합
         Panel outputLine8 = makeOutputLine8();
         outPutPanel.add(outputLine8);
 
@@ -474,6 +474,7 @@ class IvCalFrame extends Frame {
        return outPutTop;
     }
 
+    // 출력부1 : 라벨(baseStats, stat Scale, ValidStatRange,Possible Stat Range, Possible IV Range)
     private Panel makeOutputLine1() {
         Panel outputLine1 = new Panel();
         outputLine1.setBounds(0,30,FRAME_WIDTH,30);
@@ -507,7 +508,7 @@ class IvCalFrame extends Frame {
         return outputLine1;
     }
 
-    // hp 라인
+    // 출력부2 : Hp
     private Panel makeOutputLine2() {
         Panel outputLine2 = new Panel();
         outputLine2.setBounds(0,60,FRAME_WIDTH,30);
@@ -534,7 +535,7 @@ class IvCalFrame extends Frame {
         return outputLine2;
     }
 
-    // Attack 라인
+    // 출력부3 : 공격
     private Panel makeOutputLine3() {
         Panel outputLine3 = new Panel();
         outputLine3.setBounds(0,90,FRAME_WIDTH,30);
@@ -565,7 +566,7 @@ class IvCalFrame extends Frame {
         return outputLine3;
     }
 
-    // Block 라인
+    // 출력부4 : 공격
     private Panel makeOutputLine4() {
         Panel outputLine4 = new Panel();
         outputLine4.setBounds(0,120,FRAME_WIDTH,30);
@@ -596,7 +597,7 @@ class IvCalFrame extends Frame {
         return outputLine4;
     }
 
-    // Contact 라인
+    // 출력부5 : 특수공격
     private Panel makeOutputLine5() {
         Panel outputLine5 = new Panel();
         outputLine5.setBounds(0,150,FRAME_WIDTH,30);
@@ -627,7 +628,7 @@ class IvCalFrame extends Frame {
         return outputLine5;
     }
 
-    //Defense 라인
+    // 출력부6 : 특수방어
     private Panel makeOutputLine6() {
         Panel outputLine6 = new Panel();
         outputLine6.setBounds(0,180,FRAME_WIDTH,30);
@@ -658,7 +659,7 @@ class IvCalFrame extends Frame {
         return outputLine6;
     }
 
-    //Speed 라인
+    // 출력부7 : 스피드
     private Panel makeOutputLine7() {
         Panel outputLine7 = new Panel();
         outputLine7.setBounds(0,210,FRAME_WIDTH,30);
@@ -689,7 +690,8 @@ class IvCalFrame extends Frame {
         return outputLine7;
     }
 
-    //Total 라인
+    // 출력부8 : Total
+    // TODO: 종족값 총합의 추정범위도 출력해보기
     private Panel makeOutputLine8() {
         Panel outputLine8 = new Panel();
         outputLine8.setBounds(0,240,FRAME_WIDTH,30);
@@ -708,7 +710,7 @@ class IvCalFrame extends Frame {
         return outputLine8;
     }
 
-    //TODO : 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
+    // 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
     private void printResult(Map<String,String> results) {
         this.levelOutputLabel.setText(results.get("Level"));
         this.speciesOutputLabel.setText(results.get("Species"));
@@ -741,6 +743,7 @@ class IvCalFrame extends Frame {
         this.speedIVRangeOutputLabel.setText(results.get("SpeedIVRange"));
     }
 
+    // TODO : 별도의 로그창을 만들어서, 로그창에 예외 내력들을 쭉 출력하기
     private void printExceptionLogs(List<Exception> exceptions) {
         for(Exception e : exceptions) {
             System.out.println(e.getMessage());
