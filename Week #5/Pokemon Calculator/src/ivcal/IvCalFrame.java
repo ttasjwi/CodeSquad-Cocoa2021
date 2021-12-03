@@ -62,6 +62,13 @@ class IvCalFrame extends Frame {
     private Label validDefenseRangeOutputLabel = makeLabel("",200, 30);
     private Label validSpeedRangeOutputLabel = makeLabel("",200, 30);
 
+    private Label hpIVRangeOutputLabel = makeLabel(" ",200, 30);
+    private Label attackIVRangeOutputLabel = makeLabel("",200, 30);
+    private Label blockIVRangeOutputLabel = makeLabel("",200, 30);
+    private Label contactIVRangeOutputLabel = makeLabel("",200, 30);
+    private Label defenseIVRangeOutputLabel = makeLabel("",200, 30);
+    private Label speedIVRangeOutputLabel = makeLabel("",200, 30);
+
     public IvCalFrame() {
         init();
     }
@@ -86,10 +93,10 @@ class IvCalFrame extends Frame {
 
             IvCalculator ivCal = IvCalculator.of(args);
             Map<String, String> results = ivCal.getResults();
-            List<String> exceptionLogs = ivCal.getExceptionLogs();
+            List<Exception> exceptions = ivCal.getExceptions();
 
             printResult(results); // TODO : 결과를 화면에 출력한다.
-            printExceptionLogs(exceptionLogs);
+            printExceptionLogs(exceptions);
         });
         return button;
     }
@@ -520,6 +527,10 @@ class IvCalFrame extends Frame {
         validHpRangeOutputLabel.setLocation(300,0);
         outputLine2.add(validHpRangeOutputLabel);
 
+        Label hpIVRangeOutputLabel = this.hpIVRangeOutputLabel;
+        hpIVRangeOutputLabel.setLocation(500,0);
+        outputLine2.add(hpIVRangeOutputLabel);
+
         return outputLine2;
     }
 
@@ -546,6 +557,10 @@ class IvCalFrame extends Frame {
         Label validAttackRangeOutputLabel = this.validAttackRangeOutputLabel;
         validAttackRangeOutputLabel.setLocation(300,0);
         outputLine3.add(validAttackRangeOutputLabel);
+
+        Label attackIVRangeOutputLabel = this.attackIVRangeOutputLabel;
+        attackIVRangeOutputLabel.setLocation(500,0);
+        outputLine3.add(attackIVRangeOutputLabel);
 
         return outputLine3;
     }
@@ -574,6 +589,10 @@ class IvCalFrame extends Frame {
         validBlockRangeOutputLabel.setLocation(300,0);
         outputLine4.add(validBlockRangeOutputLabel);
 
+        Label blockIVRangeOutputLabel = this.blockIVRangeOutputLabel;
+        blockIVRangeOutputLabel.setLocation(500,0);
+        outputLine4.add(blockIVRangeOutputLabel);
+
         return outputLine4;
     }
 
@@ -600,6 +619,10 @@ class IvCalFrame extends Frame {
         Label validContactRangeOutputLabel = this.validContactRangeOutputLabel;
         validContactRangeOutputLabel.setLocation(300,0);
         outputLine5.add(validContactRangeOutputLabel);
+
+        Label contactIVRangeOutputLabel = this.contactIVRangeOutputLabel;
+        contactIVRangeOutputLabel.setLocation(500,0);
+        outputLine5.add(contactIVRangeOutputLabel);
 
         return outputLine5;
     }
@@ -628,6 +651,10 @@ class IvCalFrame extends Frame {
         validDefenseRangeOutputLabel.setLocation(300,0);
         outputLine6.add(validDefenseRangeOutputLabel);
 
+        Label defenseIVRangeOutputLabel = this.defenseIVRangeOutputLabel;
+        defenseIVRangeOutputLabel.setLocation(500,0);
+        outputLine6.add(defenseIVRangeOutputLabel);
+
         return outputLine6;
     }
 
@@ -654,6 +681,10 @@ class IvCalFrame extends Frame {
         Label validSpeedRangeOutputLabel = this.validSpeedRangeOutputLabel;
         validSpeedRangeOutputLabel.setLocation(300,0);
         outputLine7.add(validSpeedRangeOutputLabel);
+
+        Label speedIVRangeOutputLabel = this.speedIVRangeOutputLabel;
+        speedIVRangeOutputLabel.setLocation(500,0);
+        outputLine7.add(speedIVRangeOutputLabel);
 
         return outputLine7;
     }
@@ -701,11 +732,18 @@ class IvCalFrame extends Frame {
         this.validContactRangeOutputLabel.setText(results.get("ValidContactRange"));
         this.validDefenseRangeOutputLabel.setText(results.get("ValidDefenseRange"));
         this.validSpeedRangeOutputLabel.setText(results.get("ValidSpeedRange"));
+
+        this.hpIVRangeOutputLabel.setText(results.get("HpIVRange"));
+        this.attackIVRangeOutputLabel.setText(results.get("AttackIVRange"));
+        this.blockIVRangeOutputLabel.setText(results.get("BlockIVRange"));
+        this.contactIVRangeOutputLabel.setText(results.get("ContactIVRange"));
+        this.defenseIVRangeOutputLabel.setText(results.get("DefenseIVRange"));
+        this.speedIVRangeOutputLabel.setText(results.get("SpeedIVRange"));
     }
 
-    private void printExceptionLogs(List<String> exceptionLogs) {
-        for(String exceptionLog : exceptionLogs) {
-            System.out.println(exceptionLog);
+    private void printExceptionLogs(List<Exception> exceptions) {
+        for(Exception e : exceptions) {
+            System.out.println(e.getMessage());
         }
     }
 }

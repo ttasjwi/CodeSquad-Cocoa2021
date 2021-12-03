@@ -3,10 +3,7 @@ package ivcal;
 import resource.Nature;
 import resource.Species;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class IvCalculator {
 
@@ -30,7 +27,7 @@ public class IvCalculator {
     private int hpEffort, attackEffort, blockEffort, contactEffort, defenseEffort, speedEffort; // 노력치
 
     private Map<String,String> results;
-    private List<String> exceptionLogs = new ArrayList<>(); // 예외들
+    private List<Exception> exceptions = new ArrayList<>(); // 예외들
 
     private IvCalculator (Map<String, String> args) {
         init(args);
@@ -70,7 +67,7 @@ public class IvCalculator {
             levelValidation(parseLevel);
             return parseLevel;
         } catch(Exception e) {
-            this.exceptionLogs.add(e.getMessage());
+            exceptions.add(e);
             return 0;
         }
     }
@@ -98,7 +95,7 @@ public class IvCalculator {
             int parseStat = Integer.parseInt(statStr);
             return parseStat;
         } catch(Exception e) {
-            this.exceptionLogs.add(e.getMessage());
+            exceptions.add(e);
             return 0;
         }
     }
@@ -110,7 +107,7 @@ public class IvCalculator {
             effortValidation(parseEffort);
             return parseEffort;
         } catch(Exception e) {
-            this.exceptionLogs.add(e.getMessage());
+            exceptions.add(e);
             return 0;
         }
     }
@@ -124,7 +121,8 @@ public class IvCalculator {
     private void effortSumValidation() {
         int effortSum = hpEffort+attackEffort+blockEffort+contactEffort+defenseEffort+speedEffort;
         if(!(EFFORT_SUM_MIN<= effortSum && effortSum <=EFFORT_SUM_MAX)) {
-            this.exceptionLogs.add("Effort Sum Range Error (Effort Sum Range : 0~510)");
+            Exception e = new IllegalArgumentException("Effort Sum Range Error (Effort Sum Range : 0~510)");
+            exceptions.add(e);
         }
     }
 
@@ -154,6 +152,13 @@ public class IvCalculator {
         results.put("ValidContactRange", getValidContactRangeStr());
         results.put("ValidDefenseRange", getValidDefenseRangeStr());
         results.put("ValidSpeedRange", getValidSpeedRangeStr());
+
+        results.put("HpIVRange", getIvRangeStr(getPossibleHpIVs()));
+        results.put("AttackIVRange", getIvRangeStr(getPossibleAttackIVs()));
+        results.put("BlockIVRange", getIvRangeStr(getPossibleBlockIVs()));
+        results.put("ContactIVRange", getIvRangeStr(getPossibleContactIVs()));
+        results.put("DefenseIVRange", getIvRangeStr(getPossibleDefenseIVs()));
+        results.put("SpeedIVRange", getIvRangeStr(getPossibleSpeedIVs()));
 
         this.results = results;
     }
@@ -245,9 +250,115 @@ public class IvCalculator {
         return this.results;
     }
 
-    // 예외 로그들 반환
-    public List<String> getExceptionLogs() {
-        return this.exceptionLogs;
+    // 예외들 반환
+    public List<Exception> getExceptions() {
+        return this.exceptions;
+    }
+
+    // SortedSet을 읽고 가능한 값의 범위를 문자열로 반환
+    private String getIvRangeStr(SortedSet<Integer> numbers) {
+        if (numbers.size()==0) {
+            return "InValid Value";
+        }
+
+        int possibleIv_Min = numbers.first();
+        int possibleIv_Max = numbers.last();
+
+        if (possibleIv_Min == possibleIv_Max) {
+            return String.valueOf(possibleIv_Min);
+        }
+
+        return possibleIv_Min+"~"+possibleIv_Max;
+    }
+
+    // 가능한 hp 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleHpIVs() {
+        SortedSet<Integer> possibleHpIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.hpStat == getRealHP(this.level,this.species.getHp(), i, this.hpEffort)) {
+                possibleHpIvs.add(i);
+            }
+        }
+        if (possibleHpIvs.size()==0) {
+            Exception e = new IllegalArgumentException("HpStat Error - (Valid Hp Range : "+getValidHpRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleHpIvs;
+    }
+
+    // 가능한 공격 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleAttackIVs() {
+        SortedSet<Integer> possibleStatIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.attackStat == getRealStat(this.level,this.species.getAttack(), i, this.attackEffort, this.nature.getAttackScale())) {
+                possibleStatIvs.add(i);
+            }
+        }
+        if (possibleStatIvs.size()==0) {
+            Exception e = new IllegalArgumentException("AttackStat Error - (Valid Attack Range : "+getValidAttackRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleStatIvs;
+    }
+
+    // 가능한 방어 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleBlockIVs() {
+        SortedSet<Integer> possibleStatIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.blockStat == getRealStat(this.level,this.species.getBlock(), i, this.blockEffort, this.nature.getBlockScale())) {
+                possibleStatIvs.add(i);
+            }
+        }
+        if (possibleStatIvs.size()==0) {
+            Exception e = new IllegalArgumentException("BlockStat Error - (Valid Block Range : "+getValidBlockRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleStatIvs;
+    }
+
+    // 가능한 특수공격 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleContactIVs() {
+        SortedSet<Integer> possibleStatIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.contactStat == getRealStat(this.level,this.species.getContact(), i, this.contactEffort, this.nature.getContactScale())) {
+                possibleStatIvs.add(i);
+            }
+        }
+        if (possibleStatIvs.size()==0) {
+            Exception e = new IllegalArgumentException("ContactStat Error - (Valid Contact Range : "+getValidContactRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleStatIvs;
+    }
+
+    // 가능한 특수방어 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleDefenseIVs() {
+        SortedSet<Integer> possibleStatIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.defenseStat == getRealStat(this.level,this.species.getDefense(), i, this.defenseEffort, this.nature.getDefenseScale())) {
+                possibleStatIvs.add(i);
+            }
+        }
+        if (possibleStatIvs.size()==0) {
+            Exception e = new IllegalArgumentException("DefenseStat Error - (Valid Defense Range : "+getValidDefenseRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleStatIvs;
+    }
+
+    // 가능한 스피드 개체값들을 SortedSet으로 반환
+    private SortedSet<Integer> getPossibleSpeedIVs() {
+        SortedSet<Integer> possibleStatIvs = new TreeSet<>();
+        for(int i=IV_MIN; i<=IV_MAX; i++) {
+            if (this.speedStat == getRealStat(this.level,this.species.getSpeed(), i, this.speedEffort, this.nature.getSpeedScale())) {
+                possibleStatIvs.add(i);
+            }
+        }
+        if (possibleStatIvs.size()==0) {
+            Exception e = new IllegalArgumentException("SpeedStat Error - (Valid Speed Range : "+getValidSpeedRangeStr()+")");
+            exceptions.add(e);
+        }
+        return possibleStatIvs;
     }
 
 }
