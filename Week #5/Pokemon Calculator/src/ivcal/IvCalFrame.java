@@ -55,6 +55,12 @@ class IvCalFrame extends Frame {
     private Label defenseScaleOutputLabel = makeLabel("",100, 30);
     private Label speedScaleOutputLabel = makeLabel("",100, 30);
 
+    private Label validHpRangeOutputLabel = makeLabel(" ",200, 30);
+    private Label validAttackRangeOutputLabel = makeLabel("",200, 30);
+    private Label validBlockRangeOutputLabel = makeLabel("",200, 30);
+    private Label validContactRangeOutputLabel = makeLabel("",200, 30);
+    private Label validDefenseRangeOutputLabel = makeLabel("",200, 30);
+    private Label validSpeedRangeOutputLabel = makeLabel("",200, 30);
 
     public IvCalFrame() {
         init();
@@ -473,13 +479,13 @@ class IvCalFrame extends Frame {
         outputLine1.add(baseStatsLabel);
 
 
-        Label statScopeLabel = new Label("Stat Scope");
-        statScopeLabel.setFont(LABEL_FONT);
-        statScopeLabel.setBounds(200,0,100,outputLine1.getHeight());
-        statScopeLabel.setAlignment(Label.CENTER);
-        outputLine1.add(statScopeLabel);
+        Label statScaleLabel = new Label("Stat Scale");
+        statScaleLabel.setFont(LABEL_FONT);
+        statScaleLabel.setBounds(200,0,100,outputLine1.getHeight());
+        statScaleLabel.setAlignment(Label.CENTER);
+        outputLine1.add(statScaleLabel);
 
-        Label statRangeLabel = new Label("Stat Range");
+        Label statRangeLabel = new Label("Valid Stat Range");
         statRangeLabel.setFont(LABEL_FONT);
         statRangeLabel.setBounds(300,0,200,outputLine1.getHeight());
         statRangeLabel.setAlignment(Label.CENTER);
@@ -510,6 +516,10 @@ class IvCalFrame extends Frame {
         hpBaseStatOutputLabel.setLocation(100,0);
         outputLine2.add(hpBaseStatOutputLabel);
 
+        Label validHpRangeOutputLabel = this.validHpRangeOutputLabel;
+        validHpRangeOutputLabel.setLocation(300,0);
+        outputLine2.add(validHpRangeOutputLabel);
+
         return outputLine2;
     }
 
@@ -532,6 +542,10 @@ class IvCalFrame extends Frame {
         Label attackScaleOutputLabel = this.attackScaleOutputLabel;
         attackScaleOutputLabel.setLocation(200,0);
         outputLine3.add(attackScaleOutputLabel);
+
+        Label validAttackRangeOutputLabel = this.validAttackRangeOutputLabel;
+        validAttackRangeOutputLabel.setLocation(300,0);
+        outputLine3.add(validAttackRangeOutputLabel);
 
         return outputLine3;
     }
@@ -556,6 +570,10 @@ class IvCalFrame extends Frame {
         blockScaleOutputLabel.setLocation(200,0);
         outputLine4.add(blockScaleOutputLabel);
 
+        Label validBlockRangeOutputLabel = this.validBlockRangeOutputLabel;
+        validBlockRangeOutputLabel.setLocation(300,0);
+        outputLine4.add(validBlockRangeOutputLabel);
+
         return outputLine4;
     }
 
@@ -578,6 +596,10 @@ class IvCalFrame extends Frame {
         Label contactScaleOutputLabel = this.contactScaleOutputLabel;
         contactScaleOutputLabel.setLocation(200,0);
         outputLine5.add(contactScaleOutputLabel);
+
+        Label validContactRangeOutputLabel = this.validContactRangeOutputLabel;
+        validContactRangeOutputLabel.setLocation(300,0);
+        outputLine5.add(validContactRangeOutputLabel);
 
         return outputLine5;
     }
@@ -602,6 +624,10 @@ class IvCalFrame extends Frame {
         defenseScaleOutputLabel.setLocation(200,0);
         outputLine6.add(defenseScaleOutputLabel);
 
+        Label validDefenseRangeOutputLabel = this.validDefenseRangeOutputLabel;
+        validDefenseRangeOutputLabel.setLocation(300,0);
+        outputLine6.add(validDefenseRangeOutputLabel);
+
         return outputLine6;
     }
 
@@ -624,6 +650,10 @@ class IvCalFrame extends Frame {
         Label speedScaleOutputLabel = this.speedScaleOutputLabel;
         speedScaleOutputLabel.setLocation(200,0);
         outputLine7.add(speedScaleOutputLabel);
+
+        Label validSpeedRangeOutputLabel = this.validSpeedRangeOutputLabel;
+        validSpeedRangeOutputLabel.setLocation(300,0);
+        outputLine7.add(validSpeedRangeOutputLabel);
 
         return outputLine7;
     }
@@ -664,6 +694,13 @@ class IvCalFrame extends Frame {
         this.contactScaleOutputLabel.setText(results.get("ContactScale"));
         this.defenseScaleOutputLabel.setText(results.get("DefenseScale"));
         this.speedScaleOutputLabel.setText(results.get("SpeedScale"));
+
+        this.validHpRangeOutputLabel.setText(results.get("ValidHpRange"));
+        this.validAttackRangeOutputLabel.setText(results.get("ValidAttackRange"));
+        this.validBlockRangeOutputLabel.setText(results.get("ValidBlockRange"));
+        this.validContactRangeOutputLabel.setText(results.get("ValidContactRange"));
+        this.validDefenseRangeOutputLabel.setText(results.get("ValidDefenseRange"));
+        this.validSpeedRangeOutputLabel.setText(results.get("ValidSpeedRange"));
     }
 
     private void printExceptionLogs(List<String> exceptionLogs) {

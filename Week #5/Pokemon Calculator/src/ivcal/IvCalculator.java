@@ -7,21 +7,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class IvCalculator {
 
     // 상수
-    private static final int MIN_IV = 0; // 개체값의 최솟값
-    private static final int MAX_IV = 31; // 개체값의 최댓값
+    private static final int IV_MIN = 0; // 개체값의 최솟값
+    private static final int IV_MAX = 31; // 개체값의 최댓값
 
     private static final int LEVEL_MIN = 1; // 레벨의 최솟값
     private static final int LEVEL_MAX = 100; // 레벨의 최댓값
 
     private static final int EFFORT_MIN = 0; // 노력치의 최솟값
     private static final int EFFORT_MAX = 255; // 노력치의 최댓값
-    private static final int EFFORT_SUM_MIN = 0;
-    private static final int EFFORT_SUM_MAX = 510;
+    private static final int EFFORT_SUM_MIN = 0; // 노력치 총합의 최솟값
+    private static final int EFFORT_SUM_MAX = 510; // 노력치 총합의 최댓값
 
     private int level; // 레벨
     private Species species; // 종
@@ -43,6 +42,7 @@ public class IvCalculator {
         return new IvCalculator(args);
     }
 
+    // 인자로 받은 값들을 파싱하여 필드에 저장한다.
     private void init(Map<String, String> args) {
         this.level = parseLevel(args.get("Level"));
         this.species = parseSpecies(args.get("Species"));
@@ -62,7 +62,6 @@ public class IvCalculator {
         this.defenseEffort = parseEffort(args.get("DefenseEffort"));
         this.speedEffort = parseEffort(args.get("SpeedEffort"));
     }
-
 
     // 입력 문자 레벨을 읽어와서, 이를 level 값으로 파싱
     private int parseLevel(String levelStr) {
@@ -129,6 +128,7 @@ public class IvCalculator {
         }
     }
 
+    // 결과를 계산하여 results에 문자열로 저장
     private void calculate() {
         Map<String,String> results = new HashMap<>();
 
@@ -148,6 +148,13 @@ public class IvCalculator {
         results.put("DefenseScale", getStatScaleStr(nature.getDefenseScale()));
         results.put("SpeedScale", getStatScaleStr(nature.getSpeedScale()));
 
+        results.put("ValidHpRange", getValidHpRangeStr());
+        results.put("ValidAttackRange", getValidAttackRangeStr());
+        results.put("ValidBlockRange", getValidBlockRangeStr());
+        results.put("ValidContactRange", getValidContactRangeStr());
+        results.put("ValidDefenseRange", getValidDefenseRangeStr());
+        results.put("ValidSpeedRange", getValidSpeedRangeStr());
+
         this.results = results;
     }
 
@@ -161,43 +168,86 @@ public class IvCalculator {
         return "";
     }
 
-
     // HP 실수치 계산식
-    private static int getRealHP(int baseStat_Hp, int iv, int effortValue, int level) {
-        return (baseStat_Hp*2 + iv + effortValue/4) * (level/100) + 10 + level;
+    private static int getRealHP(int level, int hpBaseStat, int iv, int hpEffort) {
+        return (int) (((hpBaseStat * 2) + iv + (hpEffort/4)) * (level/100.0)) + 10 + level;
     }
 
-    // HP를 제외한 실수치 계산
-    private static int getRealStat(int baseStat, int iv, int effortValue, int level, double scale) {
-        return (int)(((baseStat*2 + iv + effortValue/4) * (level/100) + 5) * scale);
+    // hp 실수치의 최소유효값
+    private int getValidHpMin() {
+        return getRealHP(this.level, this.species.getHp(), IV_MIN, this.hpEffort);
     }
 
-
-    // 종족값, 노력치, 레벨을 읽어와, hp실수치의 예상 범위의 최소, 최대를 구하고 이를 List에 저장해 반환한다.
-    private static List<Integer> predictHPRange (int baseStat_Hp, int effortValue, int level) {
-        List<Integer> hps = new ArrayList<>();
-        Integer minHP = getRealHP(baseStat_Hp, MIN_IV, effortValue, level);
-        Integer maxHP = getRealHP(baseStat_Hp, MAX_IV, effortValue, level);
-        hps.add(minHP);
-        hps.add(maxHP);
-        return hps;
+    // hp 실수치의 최대유효값
+    private int getValidHpMax() {
+        return getRealHP(this.level, this.species.getHp(), IV_MAX, this.hpEffort);
     }
 
-    // 종족값, 노력치, 레벨, 배율을 읽어와 stat 실수치의 예상범위의 최소, 최대를 구하고 이를 List에 저장해 반환한다.
-    private static List<Integer> predictStatRange (int baseStat, int effortValue, int level, double scale) {
-        List<Integer> stats = new ArrayList<>();
-        Integer minStat = getRealStat(baseStat, MIN_IV, effortValue, level, scale);
-        Integer maxStat = getRealStat(baseStat, MAX_IV, effortValue, level, scale);
-        stats.add(minStat);
-        stats.add(maxStat);
-        return stats;
+    // hp 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidHpRangeStr() {
+        int validHpMin = getValidHpMin();
+        int validHpMax = getValidHpMax();
+        return validHpMin+"~"+validHpMax;
     }
 
+    // HP를 제외한 스탯 실수치 계산
+    private static int getRealStat(int level, int baseStat, int iv, int effort, double scale) {
+        return (int)(((int)(((baseStat * 2) + iv + (effort/4)) * (level/100.0)) + 5 ) * scale);
+    }
+
+    // HP를 제외한 스탯 실수치의 최소유효값
+    private int getValidStatMin(int baseStat, int effort, double scale) {
+        return getRealStat(this.level, baseStat, IV_MIN, effort, scale);
+    }
+
+    // HP를 제외한 스탯 실수치의 최대유효값
+    private int getValidStatMax(int baseStat, int effort, double scale) {
+        return getRealStat(this.level, baseStat, IV_MAX, effort, scale);
+    }
+
+    // 공격 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidAttackRangeStr() {
+        int validAttackMin = getValidStatMin(this.species.getAttack(),this.attackEffort,this.nature.getAttackScale());
+        int validAttackMax = getValidStatMax(this.species.getAttack(),this.attackEffort,this.nature.getAttackScale());
+        return validAttackMin+"~"+validAttackMax;
+    }
+
+    // 방어 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidBlockRangeStr() {
+        int validBlockMin = getValidStatMin(this.species.getBlock(),this.blockEffort,this.nature.getBlockScale());
+        int validBlockMax = getValidStatMax(this.species.getBlock(),this.blockEffort,this.nature.getBlockScale());
+        return validBlockMin+"~"+validBlockMax;
+    }
+
+    // 특수공격 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidContactRangeStr() {
+        int validContactMin = getValidStatMin(this.species.getContact(),this.contactEffort,this.nature.getContactScale());
+        int validContactMax = getValidStatMax(this.species.getContact(),this.contactEffort,this.nature.getContactScale());
+        return validContactMin+"~"+validContactMax;
+    }
+
+    // 특수방어 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidDefenseRangeStr() {
+        int validDefenseMin = getValidStatMin(this.species.getDefense(),this.defenseEffort,this.nature.getDefenseScale());
+        int validDefenseMax = getValidStatMax(this.species.getDefense(),this.defenseEffort,this.nature.getDefenseScale());
+        return validDefenseMin+"~"+validDefenseMax;
+    }
+
+    // 스피드 실수치의 유효값의 범위를 문자열(min~max)로 반환
+    private String getValidSpeedRangeStr() {
+        int validSpeedMin = getValidStatMin(this.species.getSpeed(),this.speedEffort,this.nature.getSpeedScale());
+        int validSpeedMax = getValidStatMax(this.species.getSpeed(),this.speedEffort,this.nature.getSpeedScale());
+        return validSpeedMin+"~"+validSpeedMax;
+    }
+
+    // 결과 반환
     public Map<String,String> getResults() {
         return this.results;
     }
 
+    // 예외 로그들 반환
     public List<String> getExceptionLogs() {
         return this.exceptionLogs;
     }
+
 }
