@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class IvCalculator {
 
@@ -141,8 +142,25 @@ public class IvCalculator {
         results.put("SpeedBaseStat", String.valueOf(this.species.getSpeed()));
         results.put("TotalBaseStat", String.valueOf(this.species.getTotalStat()));
 
+        results.put("AttackScale", getStatScaleStr(nature.getAttackScale()));
+        results.put("BlockScale", getStatScaleStr(nature.getBlockScale()));
+        results.put("ContactScale", getStatScaleStr(nature.getContactScale()));
+        results.put("DefenseScale", getStatScaleStr(nature.getDefenseScale()));
+        results.put("SpeedScale", getStatScaleStr(nature.getSpeedScale()));
+
         this.results = results;
     }
+
+    //statScale을 인자로 하여, 출력할 배율을 반환한다.
+    private String getStatScaleStr(double statScale) {
+        double upScale = 1.1;
+        double downScale = 0.9;
+
+        if (statScale==upScale) return "*"+upScale;
+        if (statScale==downScale) return "*"+downScale;
+        return "";
+    }
+
 
     // HP 실수치 계산식
     private static int getRealHP(int baseStat_Hp, int iv, int effortValue, int level) {

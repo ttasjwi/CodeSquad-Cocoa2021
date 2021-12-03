@@ -49,6 +49,13 @@ class IvCalFrame extends Frame {
     private Label speedBaseStatOutputLabel = makeLabel("",100, 30);
     private Label totalBaseStatOutputLabel = makeLabel("",100, 30);
 
+    private Label attackScaleOutputLabel = makeLabel("",100, 30);
+    private Label blockScaleOutputLabel = makeLabel("",100, 30);
+    private Label contactScaleOutputLabel = makeLabel("",100, 30);
+    private Label defenseScaleOutputLabel = makeLabel("",100, 30);
+    private Label speedScaleOutputLabel = makeLabel("",100, 30);
+
+
     public IvCalFrame() {
         init();
     }
@@ -522,6 +529,10 @@ class IvCalFrame extends Frame {
         attackBaseStatOutputLabel.setLocation(100,0);
         outputLine3.add(attackBaseStatOutputLabel);
 
+        Label attackScaleOutputLabel = this.attackScaleOutputLabel;
+        attackScaleOutputLabel.setLocation(200,0);
+        outputLine3.add(attackScaleOutputLabel);
+
         return outputLine3;
     }
 
@@ -540,6 +551,10 @@ class IvCalFrame extends Frame {
         Label blockBaseStatOutputLabel = this.blockBaseStatOutputLabel;
         blockBaseStatOutputLabel.setLocation(100,0);
         outputLine4.add(blockBaseStatOutputLabel);
+
+        Label blockScaleOutputLabel = this.blockScaleOutputLabel;
+        blockScaleOutputLabel.setLocation(200,0);
+        outputLine4.add(blockScaleOutputLabel);
 
         return outputLine4;
     }
@@ -560,6 +575,10 @@ class IvCalFrame extends Frame {
         contactBaseStatOutputLabel.setLocation(100,0);
         outputLine5.add(contactBaseStatOutputLabel);
 
+        Label contactScaleOutputLabel = this.contactScaleOutputLabel;
+        contactScaleOutputLabel.setLocation(200,0);
+        outputLine5.add(contactScaleOutputLabel);
+
         return outputLine5;
     }
 
@@ -579,6 +598,10 @@ class IvCalFrame extends Frame {
         defenseBaseStatOutputLabel.setLocation(100,0);
         outputLine6.add(defenseBaseStatOutputLabel);
 
+        Label defenseScaleOutputLabel = this.defenseScaleOutputLabel;
+        defenseScaleOutputLabel.setLocation(200,0);
+        outputLine6.add(defenseScaleOutputLabel);
+
         return outputLine6;
     }
 
@@ -597,6 +620,10 @@ class IvCalFrame extends Frame {
         Label speedBaseStatOutputLabel = this.speedBaseStatOutputLabel;
         speedBaseStatOutputLabel.setLocation(100,0);
         outputLine7.add(speedBaseStatOutputLabel);
+
+        Label speedScaleOutputLabel = this.speedScaleOutputLabel;
+        speedScaleOutputLabel.setLocation(200,0);
+        outputLine7.add(speedScaleOutputLabel);
 
         return outputLine7;
     }
@@ -631,6 +658,12 @@ class IvCalFrame extends Frame {
         this.defenseBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
         this.speedBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
         this.totalBaseStatOutputLabel.setText(results.get("TotalBaseStat"));
+
+        this.attackScaleOutputLabel.setText(results.get("AttackScale"));
+        this.blockScaleOutputLabel.setText(results.get("BlockScale"));
+        this.contactScaleOutputLabel.setText(results.get("ContactScale"));
+        this.defenseScaleOutputLabel.setText(results.get("DefenseScale"));
+        this.speedScaleOutputLabel.setText(results.get("SpeedScale"));
     }
 
     private void printExceptionLogs(List<String> exceptionLogs) {
