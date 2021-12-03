@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.*;
+import java.util.List;
 
 class IvCalFrame extends Frame {
     private static final String TITLE = "IVCalculator";
@@ -37,6 +38,17 @@ class IvCalFrame extends Frame {
 
     private Button calButton = makeCalButton(); // 계산 명령 버튼
 
+    private Label levelOutputLabel = makeLabel("1",40,30);
+    private Label speciesOutputLabel = makeLabel("???", 250,30);
+
+    private Label hpBaseStatOutputLabel = makeLabel(" ",100, 30);
+    private Label attackBaseStatOutputLabel = makeLabel("",100, 30);
+    private Label blockBaseStatOutputLabel = makeLabel("",100, 30);
+    private Label contactBaseStatOutputLabel = makeLabel("",100, 30);
+    private Label defenseBaseStatOutputLabel = makeLabel("",100, 30);
+    private Label speedBaseStatOutputLabel = makeLabel("",100, 30);
+    private Label totalBaseStatOutputLabel = makeLabel("",100, 30);
+
     public IvCalFrame() {
         init();
     }
@@ -55,15 +67,24 @@ class IvCalFrame extends Frame {
     //버튼을 생성
     private Button makeCalButton() {
         Button button = new Button("Calculate");
-        button.setSize(100,30);
-        button.addActionListener(e->{
+        button.setSize(100, 30);
+        button.addActionListener(e -> {
             Map<String, String> args = getArgs(); // 입력값들을 리스트에 담는다.
 
             IvCalculator ivCal = IvCalculator.of(args);
-            Map<String,String> results = ivCal.cal(); // TODO: 리스트의 인자들을 기반으로 결과출력문들의 리스트를 반환받는다.
+            Map<String, String> results = ivCal.getResults();
+            List<String> exceptionLogs = ivCal.getExceptionLogs();
+
             printResult(results); // TODO : 결과를 화면에 출력한다.
+            printExceptionLogs(exceptionLogs);
         });
         return button;
+    }
+
+    private Label makeLabel(String text, int width, int height) {
+        Label label = new Label(text, Label.CENTER);
+        label.setSize(width, height);
+        return label;
     }
 
     //창을 초기화
@@ -99,7 +120,7 @@ class IvCalFrame extends Frame {
     // 입력 판넬 생성 및 추가
     private void addInputPanel() {
         Panel inputPanel = new Panel();
-        inputPanel.setBounds(0,50,FRAME_WIDTH,400);
+        inputPanel.setBounds(0,50,FRAME_WIDTH,190);
         inputPanel.setLayout(null);
 
         Panel inputTop = makeInputTop(); // 종족선택 라벨, 레벨입력 라벨, 성격선택 라벨이 있는 곳
@@ -336,11 +357,6 @@ class IvCalFrame extends Frame {
 
 
 
-    //TODO : 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
-    private void printResult(Map<String,String> results) {
-
-    }
-
     // 각 필드로부터 인자들을 읽어온다.
     private Map<String, String> getArgs() {
         Map<String,String> args = new HashMap<>();
@@ -349,24 +365,277 @@ class IvCalFrame extends Frame {
         args.put("Level", levelField.getText());
         args.put("Nature", natureChoice.getSelectedItem());
 
-        args.put("Hp Stat", hpStatField.getText());
-        args.put("Attack Stat",attackStatField.getText());
-        args.put("Block Stat",blockStatField.getText());
-        args.put("Contact Stat",contactStatField.getText());
-        args.put("Defense Stat",defenseStatField.getText());
-        args.put("Speed Stat",speedStatField.getText());
+        args.put("HpStat", hpStatField.getText());
+        args.put("AttackStat",attackStatField.getText());
+        args.put("BlockStat",blockStatField.getText());
+        args.put("ContactStat",contactStatField.getText());
+        args.put("DefenseStat",defenseStatField.getText());
+        args.put("SpeedStat",speedStatField.getText());
 
-        args.put("Hp Effort",hpEffortField.getText());
-        args.put("Attack Effort", attackEffortField.getText());
-        args.put("Block Effort", blockEffortField.getText());
-        args.put("Contact Effort",contactEffortField.getText());
-        args.put("Defense Effort",defenseEffortField.getText());
-        args.put("Speed Effort",speedEffortField.getText());
+        args.put("HpEffort",hpEffortField.getText());
+        args.put("AttackEffort", attackEffortField.getText());
+        args.put("BlockEffort", blockEffortField.getText());
+        args.put("ContactEffort",contactEffortField.getText());
+        args.put("DefenseEffort",defenseEffortField.getText());
+        args.put("SpeedEffort",speedEffortField.getText());
         return args;
     }
 
     //TODO : 결과 출력창 생성 및 추가
     private void addOutputPanel() {
+        Panel outPutPanel = new Panel();
+        outPutPanel.setBounds(0,240,FRAME_WIDTH,300);
+        outPutPanel.setLayout(null);
 
+        //TODO : 출력부1 : 레벨 및 종족 출력부
+        Panel outputTop = makeOutputTop();
+        outPutPanel.add(outputTop);
+
+        //TODO : 출력부2 : 라벨(종족값 라벨, 범위, 가능 범위)
+        Panel outputLine1 = makeOutputLine1();
+        outPutPanel.add(outputLine1);
+
+        //TODO : 출력부3 :  HP
+        Panel outputLine2 = makeOutputLine2();
+        outPutPanel.add(outputLine2);
+
+        //TODO : 출력부4 : 공격
+        Panel outputLine3 = makeOutputLine3();
+        outPutPanel.add(outputLine3);
+
+        //TODO : 출력부5 : 방어
+        Panel outputLine4 = makeOutputLine4();
+        outPutPanel.add(outputLine4);
+
+        //TODO : 출력부6 : 특수공격
+        Panel outputLine5 = makeOutputLine5();
+        outPutPanel.add(outputLine5);
+
+        //TODO : 출력부7 : 특수방어
+        Panel outputLine6 = makeOutputLine6();
+        outPutPanel.add(outputLine6);
+
+        //TODO : 출력부8 : 스피드
+        Panel outputLine7 = makeOutputLine7();
+        outPutPanel.add(outputLine7);
+
+        //TODO : 출력부9 : 종족값 총합
+        Panel outputLine8 = makeOutputLine8();
+        outPutPanel.add(outputLine8);
+
+        add(outPutPanel);
+    }
+
+    //출력부 최상단 : 레벨, 종족 출력
+    private Panel makeOutputTop() {
+        Panel outPutTop = new Panel();
+        outPutTop.setBounds(0,0,FRAME_WIDTH, 30);
+        outPutTop.setLayout(null);
+
+        Label levelTextLabel = makeLabel("Level", 45, outPutTop.getHeight());
+        levelTextLabel.setLocation(230,0);
+        levelTextLabel.setAlignment(Label.LEFT);
+        levelTextLabel.setFont(LABEL_FONT);
+
+        outPutTop.add(levelTextLabel);
+
+        Label levelOutputLabel = this.levelOutputLabel;
+        levelOutputLabel.setLocation(280,0);
+        levelOutputLabel.setAlignment(Label.LEFT);
+        levelOutputLabel.setFont(LABEL_FONT);
+        outPutTop.add(levelOutputLabel);
+
+        Label speciesOutputLabel = this.speciesOutputLabel;
+        speciesOutputLabel.setLocation(320,0);
+        speciesOutputLabel.setAlignment(Label.LEFT);
+        speciesOutputLabel.setFont(LABEL_FONT);
+        outPutTop.add(speciesOutputLabel);
+
+       return outPutTop;
+    }
+
+    private Panel makeOutputLine1() {
+        Panel outputLine1 = new Panel();
+        outputLine1.setBounds(0,30,FRAME_WIDTH,30);
+        outputLine1.setLayout(null);
+
+        Label baseStatsLabel = new Label("BaseStats");
+        baseStatsLabel.setFont(LABEL_FONT);
+        baseStatsLabel.setBounds(100,0,100,outputLine1.getHeight());
+        baseStatsLabel.setAlignment(Label.CENTER);
+        outputLine1.add(baseStatsLabel);
+
+
+        Label statScopeLabel = new Label("Stat Scope");
+        statScopeLabel.setFont(LABEL_FONT);
+        statScopeLabel.setBounds(200,0,100,outputLine1.getHeight());
+        statScopeLabel.setAlignment(Label.CENTER);
+        outputLine1.add(statScopeLabel);
+
+        Label statRangeLabel = new Label("Stat Range");
+        statRangeLabel.setFont(LABEL_FONT);
+        statRangeLabel.setBounds(300,0,200,outputLine1.getHeight());
+        statRangeLabel.setAlignment(Label.CENTER);
+        outputLine1.add(statRangeLabel);
+
+        Label ivRangeLabel = new Label("Possible IV Range");
+        ivRangeLabel.setFont(LABEL_FONT);
+        ivRangeLabel.setBounds(500,0,200,outputLine1.getHeight());
+        ivRangeLabel.setAlignment(Label.CENTER);
+        outputLine1.add(ivRangeLabel);
+
+        return outputLine1;
+    }
+
+    // hp 라인
+    private Panel makeOutputLine2() {
+        Panel outputLine2 = new Panel();
+        outputLine2.setBounds(0,60,FRAME_WIDTH,30);
+        outputLine2.setLayout(null);
+
+        Label hpOutputLabel = new Label("Hp");
+        hpOutputLabel.setFont(LABEL_FONT);
+        hpOutputLabel.setBounds(0,0,100,outputLine2.getHeight());
+        hpOutputLabel.setAlignment(Label.CENTER);
+        outputLine2.add(hpOutputLabel);
+
+        Label hpBaseStatOutputLabel = this.hpBaseStatOutputLabel;
+        hpBaseStatOutputLabel.setLocation(100,0);
+        outputLine2.add(hpBaseStatOutputLabel);
+
+        return outputLine2;
+    }
+
+    // Attack 라인
+    private Panel makeOutputLine3() {
+        Panel outputLine3 = new Panel();
+        outputLine3.setBounds(0,90,FRAME_WIDTH,30);
+        outputLine3.setLayout(null);
+
+        Label attackOutputLabel = new Label("Attack");
+        attackOutputLabel.setFont(LABEL_FONT);
+        attackOutputLabel.setBounds(0,0,100,outputLine3.getHeight());
+        attackOutputLabel.setAlignment(Label.CENTER);
+        outputLine3.add(attackOutputLabel);
+
+        Label attackBaseStatOutputLabel = this.attackBaseStatOutputLabel;
+        attackBaseStatOutputLabel.setLocation(100,0);
+        outputLine3.add(attackBaseStatOutputLabel);
+
+        return outputLine3;
+    }
+
+    // Block 라인
+    private Panel makeOutputLine4() {
+        Panel outputLine4 = new Panel();
+        outputLine4.setBounds(0,120,FRAME_WIDTH,30);
+        outputLine4.setLayout(null);
+
+        Label blockOutputLabel = new Label("Block");
+        blockOutputLabel.setFont(LABEL_FONT);
+        blockOutputLabel.setBounds(0,0,100,outputLine4.getHeight());
+        blockOutputLabel.setAlignment(Label.CENTER);
+        outputLine4.add(blockOutputLabel);
+
+        Label blockBaseStatOutputLabel = this.blockBaseStatOutputLabel;
+        blockBaseStatOutputLabel.setLocation(100,0);
+        outputLine4.add(blockBaseStatOutputLabel);
+
+        return outputLine4;
+    }
+
+    // Contact 라인
+    private Panel makeOutputLine5() {
+        Panel outputLine5 = new Panel();
+        outputLine5.setBounds(0,150,FRAME_WIDTH,30);
+        outputLine5.setLayout(null);
+
+        Label contactOutputLabel = new Label("Contact");
+        contactOutputLabel.setFont(LABEL_FONT);
+        contactOutputLabel.setBounds(0,0,100,outputLine5.getHeight());
+        contactOutputLabel.setAlignment(Label.CENTER);
+        outputLine5.add(contactOutputLabel);
+
+        Label contactBaseStatOutputLabel = this.contactBaseStatOutputLabel;
+        contactBaseStatOutputLabel.setLocation(100,0);
+        outputLine5.add(contactBaseStatOutputLabel);
+
+        return outputLine5;
+    }
+
+    //Defense 라인
+    private Panel makeOutputLine6() {
+        Panel outputLine6 = new Panel();
+        outputLine6.setBounds(0,180,FRAME_WIDTH,30);
+        outputLine6.setLayout(null);
+
+        Label defenseOutputLabel = new Label("Defense");
+        defenseOutputLabel.setFont(LABEL_FONT);
+        defenseOutputLabel.setBounds(0,0,100,outputLine6.getHeight());
+        defenseOutputLabel.setAlignment(Label.CENTER);
+        outputLine6.add(defenseOutputLabel);
+
+        Label defenseBaseStatOutputLabel = this.defenseBaseStatOutputLabel;
+        defenseBaseStatOutputLabel.setLocation(100,0);
+        outputLine6.add(defenseBaseStatOutputLabel);
+
+        return outputLine6;
+    }
+
+    //Speed 라인
+    private Panel makeOutputLine7() {
+        Panel outputLine7 = new Panel();
+        outputLine7.setBounds(0,210,FRAME_WIDTH,30);
+        outputLine7.setLayout(null);
+
+        Label speedOutputLabel = new Label("Speed");
+        speedOutputLabel.setFont(LABEL_FONT);
+        speedOutputLabel.setBounds(0,0,100,outputLine7.getHeight());
+        speedOutputLabel.setAlignment(Label.CENTER);
+        outputLine7.add(speedOutputLabel);
+
+        Label speedBaseStatOutputLabel = this.speedBaseStatOutputLabel;
+        speedBaseStatOutputLabel.setLocation(100,0);
+        outputLine7.add(speedBaseStatOutputLabel);
+
+        return outputLine7;
+    }
+
+    //Total 라인
+    private Panel makeOutputLine8() {
+        Panel outputLine8 = new Panel();
+        outputLine8.setBounds(0,240,FRAME_WIDTH,30);
+        outputLine8.setLayout(null);
+
+        Label totalOutputLabel = new Label("Total");
+        totalOutputLabel.setFont(LABEL_FONT);
+        totalOutputLabel.setBounds(0,0,100,outputLine8.getHeight());
+        totalOutputLabel.setAlignment(Label.CENTER);
+        outputLine8.add(totalOutputLabel);
+
+        Label totalBaseStatOutputLabel = this.totalBaseStatOutputLabel;
+        totalBaseStatOutputLabel.setLocation(100,0);
+        outputLine8.add(totalBaseStatOutputLabel);
+
+        return outputLine8;
+    }
+
+    //TODO : 화면에 결과를 출력하기(OutPut의 컴포넌트에 값 넘기기)
+    private void printResult(Map<String,String> results) {
+        this.levelOutputLabel.setText(results.get("Level"));
+        this.speciesOutputLabel.setText(results.get("Species"));
+        this.hpBaseStatOutputLabel.setText(results.get("HpBaseStat"));
+        this.attackBaseStatOutputLabel.setText(results.get("AttackBaseStat"));
+        this.blockBaseStatOutputLabel.setText(results.get("BlockBaseStat"));
+        this.contactBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
+        this.defenseBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
+        this.speedBaseStatOutputLabel.setText(results.get("ContactBaseStat"));
+        this.totalBaseStatOutputLabel.setText(results.get("TotalBaseStat"));
+    }
+
+    private void printExceptionLogs(List<String> exceptionLogs) {
+        for(String exceptionLog : exceptionLogs) {
+            System.out.println(exceptionLog);
+        }
     }
 }
