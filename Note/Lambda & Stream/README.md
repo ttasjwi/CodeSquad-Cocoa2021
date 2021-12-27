@@ -42,7 +42,11 @@
 3) `List<E>` 인터페이스의 디폴트 메서드
 4) `Map<K,V>` 인터페이스의 디폴트 메서드
 
-## 2.3 Function의 합성과 Predicate의 결합
+## <a href="2. java.util.function 패키지/2.3 Function의 합성과 Predicate의 결합.md" target="_blank">2.3 Function의 합성과 Predicate의 결합</a>
+1) Function의 합성
+2) 항등함수
+3) Predicate의 결합
+4) 동등 여부를 판단하는 Predicate
 
 ## <a href="2. java.util.function 패키지/2.4 메서드 참조.md" target="_blank">2.4 메서드 참조</a>
 1) 메서드 참조란?
