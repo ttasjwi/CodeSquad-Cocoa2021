@@ -28,9 +28,20 @@
 --- 
 
 # 2. java.util.function 패키지
-## 2.1 여러가지 함수형 인터페이스
-## 2.2 Function의 합성과 Predicate의 결합
-## <a href="2. java.util.function 패키지/2.3 메서드 참조/README.md" target="_blank">2.3 메서드 참조</a>
+
+## <a href="2. java.util.function 패키지/2.1 여러가지 함수형 인터페이스.md" target="_blank">2.1 여러가지 함수형 인터페이스</a>
+1) 핵심 함수형 인터페이스
+2) 매개변수가 두 개인 함수형 인터페이스
+3) 매개변수가 3개 이상인 경우는?
+4) UnaryOperator, BinaryOperator
+5) 기본형을 사용하는 함수형 인터페이스
+
+## 2.2 컬렉션 프레임워크와 함수형 인터페이스
+
+
+## 2.3 Function의 합성과 Predicate의 결합
+
+## <a href="2. java.util.function 패키지/2.4 메서드 참조.md" target="_blank">2.4 메서드 참조</a>
 1) 메서드 참조란?
 2) static 메서드 참조
 3) 임의의 객체마다 특정 인스턴스 메서드 참조
