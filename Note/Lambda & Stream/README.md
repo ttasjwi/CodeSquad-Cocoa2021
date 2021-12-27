@@ -36,8 +36,11 @@
 4) UnaryOperator, BinaryOperator
 5) 기본형을 사용하는 함수형 인터페이스
 
-## 2.2 컬렉션 프레임워크와 함수형 인터페이스
-
+## <a href="2. java.util.function 패키지/2.2 컬렉션 프레임워크와 함수형 인터페이스.md" target="_blank">2.2 컬렉션 프레임워크와 함수형 인터페이스</a>
+1) `Iterable<T>` 인터페이스의 디폴트 메서드
+2) `Collection<T>` 인터페이스의 디폴트 메서드
+3) `List<E>` 인터페이스의 디폴트 메서드
+4) `Map<K,V>` 인터페이스의 디폴트 메서드
 
 ## 2.3 Function의 합성과 Predicate의 결합
 
