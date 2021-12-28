@@ -96,7 +96,11 @@
 2) Stream의 정렬 - sorted()  
 3) <a href="../Collection Framework/6. 정렬/6.2 interface Comparator/README.md" target="_blank">Comparator\<T> 재학습</a>
 
-## 4.3 변환(map)
+## <a href="4. Stream의 중간연산/4.3 변환.md" target="_blank">4.3 변환</a>
+1) 변환 - map
+2) flatMap
+3) mapToInt, ...
+4) flatMapToInt, ...
 
 ## 4.4 중간확인(peek)
 
