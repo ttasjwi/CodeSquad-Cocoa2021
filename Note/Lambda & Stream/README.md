@@ -60,7 +60,7 @@
 # 3. Stream
 
 ## 3.1 Stream
-## <a href="3. Stream/3.2 Stream 생성/README.md" target="_blank">3.2 Stream 생성</a>
+## <a href="3. Stream/3.2 Stream 생성.md" target="_blank">3.2 Stream 생성</a>
 1) 컬렉션 기반 Stream
 2) 가변인자, 배열 기반 Stream
 3) 특정 범위의 정수
