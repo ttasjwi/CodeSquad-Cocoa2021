@@ -102,7 +102,8 @@
 3) mapToInt, ...
 4) flatMapToInt, ...
 
-## 4.4 중간확인(peek)
+## <a href="4. Stream의 중간연산/4.4 중간확인.md" target="_blank">4.4 중간확인</a>
+1) peek
 
 ---
 
