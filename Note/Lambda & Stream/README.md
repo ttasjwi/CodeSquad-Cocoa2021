@@ -76,6 +76,11 @@
 7) 빈 스트림
 8) 두 스트림의 연결
 
+## <a href="3. Stream/3.3 기본형 Stream.md" target="_blank">3.3 기본형 Stream</a>
+1) 기본형 Stream 생성
+2) 기본형 Stream의 최종연산
+3) summaryStatistics
+
 ---
 
 # 4. Stream의 중간연산
@@ -87,6 +92,7 @@
 4) distinct - 중복 제거
 
 ## <a href="4. Stream의 중간연산/4.2 정렬 - sorted()/README.md" target="_blank">4.2 정렬</a>
+## <a href="4. Stream의 중간연산/4.2 정렬.md" target="_blank">4.2 정렬</a>
 1) 정렬의 필요조건
 2) Stream의 정렬 - sorted()  
 3) <a href="../Collection Framework/6. 정렬/6.2 interface Comparator/README.md" target="_blank">Comparator\<T> 재학습</a>
