@@ -80,11 +80,11 @@
 
 # 4. Stream의 중간연산
 
-## 4.1 자르기, 걸러내기
-1) skip : 앞의 n개 건너뛰기
-2) limit : 개수 제한
-3) filter : 조건식 -> 걸러내기
-4) distinct : 중복제거
+## <a href="4. Stream의 중간연산/4.1 자르기, 걸러내기.md" target="_blank">4.1 자르기, 걸러내기</a>
+1) skip - 앞의 n개 건너뛰기
+2) limit - 요소를 n개로 제한
+3) filter - 지정 조건에 부합하는 요소만 남김(필터링)
+4) distinct - 중복 제거
 
 ## <a href="4. Stream의 중간연산/4.2 정렬 - sorted()/README.md" target="_blank">4.2 정렬 - sorted()</a>
 1) 정렬의 필요조건
