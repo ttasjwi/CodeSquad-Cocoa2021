@@ -59,7 +59,13 @@
 
 # 3. Stream
 
-## 3.1 Stream
+## <a href="3. Stream/3.1 Stream.md" target="_blank">3.1 Stream</a>
+1) Stream이란?
+2) 기존 데이터군 처리방식의 한계
+3) Stream의 편리성
+4) Stream을 통한 작업의 흐름
+5) Stream의 특징
+
 ## <a href="3. Stream/3.2 Stream 생성.md" target="_blank">3.2 Stream 생성</a>
 1) 컬렉션 기반 Stream
 2) 가변인자, 배열 기반 Stream
