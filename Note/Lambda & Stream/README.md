@@ -121,4 +121,9 @@
 4) isPresent
 5) ifPresent
 
+## <a href="5. Optional과 OptionalInt/5.3 OptionalInt, OptionalLong, OptionalDouble.md" target="_blank">5.3 OptionalInt, OptionalLong, OptionalDouble</a>
+1) 기본형 Optional의 생성
+2) 기본형 저장값 반환
+3) 기본형 Optional의 null처리
+
 ---
