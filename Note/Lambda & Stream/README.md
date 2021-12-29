@@ -114,4 +114,11 @@
 2) `Optional<T>` 생성
 3) `Optional<T>`에 보관된 객체에 접근하기
 
+## <a href="5. Optional과 OptionalInt/5.2 Optional의 여러가지 메서드.md" target="_blank">5.2 Optional의 여러가지 메서드</a>
+1) map
+2) filter
+3) flatMap
+4) isPresent
+5) ifPresent
+
 ---
