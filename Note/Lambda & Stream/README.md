@@ -128,3 +128,11 @@
 3) 기본형 Optional의 null처리
 
 ---
+
+# 6. Stream의 최종연산
+
+## <a href="6. Stream의 최종연산/6.1 forEach.md" target="_blank">6.1 forEach</a>
+1) forEach
+2) forEachOrdered
+
+---
