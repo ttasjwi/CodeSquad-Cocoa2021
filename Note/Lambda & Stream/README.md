@@ -136,3 +136,9 @@
 2) forEachOrdered
 
 ---
+
+## <a href="6. Stream의 최종연산/6.2 조건검사.md" target="_blank">6.2 조건검사</a>
+1) allMatch, anyMatch, noneMatch
+2) findFirst, findAny
+
+---
