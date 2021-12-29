@@ -110,9 +110,10 @@
 # 5. Optional과 OptionalInt
 
 ## <a href="5. Optional과 OptionalInt/5.1 Optional.md" target="_blank">5.1 Optional</a>
-1) `Optional<T>`
-2) `Optional<T>` 생성
-3) `Optional<T>`에 보관된 객체에 접근하기
+1) Optional
+2) Optional 생성
+3) Optional에 보관된 객체에 접근하기
+4) Optional의 동등성(equals)
 
 ## <a href="5. Optional과 OptionalInt/5.2 Optional의 여러가지 메서드.md" target="_blank">5.2 Optional의 여러가지 메서드</a>
 1) map
