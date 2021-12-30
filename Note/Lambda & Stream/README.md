@@ -167,4 +167,7 @@
 2) 초깃값 + 누적함수
 3) 초깃값 + 변환함수 + 누적함수 (map+reduce)
 
+## <a href="7. Stream의 최종연산 - collect/7.5 문자열 결합.md" target="_blank">7.5 문자열 결합</a>
+1) joining
+
 ---
