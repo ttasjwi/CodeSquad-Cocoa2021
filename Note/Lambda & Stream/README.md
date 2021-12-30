@@ -153,4 +153,9 @@
 2) Collector
 3) Collectors 클래스
 4) collect, Collector, Collectors
+
+## <a href="7. Stream의 최종연산 - collect/7.2 Stream을 컬렉션, 배열로 변환.md" target="_blank">7.2 Stream을 컬렉션, 배열로 변환</a>
+1) `.collect(...)` - List, Set, Map
+2) `toArray(...)`
+
 ---
