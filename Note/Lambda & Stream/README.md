@@ -162,4 +162,9 @@
 1) counting, summingInt, averagingInt, maxBy, minBy
 2) summarizingInt
 
+## <a href="7. Stream의 최종연산 - collect/7.4 리듀싱(reducing).md" target="_blank">7.4 리듀싱(reducing)</a>
+1) 누적함수만 정의된 reducing
+2) 초깃값 + 누적함수
+3) 초깃값 + 변환함수 + 누적함수 (map+reduce)
+
 ---
