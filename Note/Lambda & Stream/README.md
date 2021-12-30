@@ -135,10 +135,13 @@
 1) forEach
 2) forEachOrdered
 
----
-
 ## <a href="6. Stream의 최종연산/6.2 조건검사.md" target="_blank">6.2 조건검사</a>
 1) allMatch, anyMatch, noneMatch
 2) findFirst, findAny
+
+## <a href="6. Stream의 최종연산/6.3 누적연산.md" target="_blank">6.3 누적연산</a>
+1) reduce
+2) count, sum, max, min
+3) collect
 
 ---
