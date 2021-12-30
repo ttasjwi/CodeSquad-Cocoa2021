@@ -158,4 +158,8 @@
 1) `.collect(...)` - List, Set, Map
 2) `toArray(...)`
 
+## <a href="7. Stream의 최종연산 - collect/7.3 통계.md" target="_blank">7.3 통계</a>
+1) counting, summingInt, averagingInt, maxBy, minBy
+2) summarizingInt
+
 ---
