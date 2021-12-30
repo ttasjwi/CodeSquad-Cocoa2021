@@ -145,3 +145,12 @@
 3) collect
 
 ---
+
+# 7. Stream의 최종연산 - collect
+
+## <a href="7. Stream의 최종연산 - collect/7.1 collect와 Collector.md" target="_blank">7.1 collect와 Collector</a>
+1) collect
+2) Collector
+3) Collectors 클래스
+4) collect, Collector, Collectors
+---
