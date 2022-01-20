@@ -6,12 +6,14 @@
 
 # 1. 람다식(Lambda Expression)
 
-## <a href="1. 람다식(Lambda Expression)/1.1 람다식(Lambda Expression)/README.md" target="_blank">1.1 람다식(Lambda Expression)</a>
+## <a href="1. 람다식(Lambda Expression)/1.1 람다식(Lambda Expression).md" target="_blank">1.1 람다식(Lambda Expression)</a>
 1) 람다식이란?
 2) 함수 vs 메서드
 3) 일급 객체
 4) 익명 클래스
 5) 메서드를 일급 객체처럼
+6) 순수함수
+7) 고차함수
 
 ## <a href="1. 람다식(Lambda Expression)/1.2 람다식 작성하기.md" target="_blank">1.2 람다식 작성하기</a>
 1) 람다식 작성
